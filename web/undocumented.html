@@ -1,0 +1,2678 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undocument APIs &#8212; Data Collection in Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Youtube" href="YouTube.html" />
+    <link rel="prev" title="Downloading newspaper articles" href="newspapers.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/networks.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Collection in Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Data Collection in Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../starting.html">
+   Getting Started with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/setup.html">
+     Setting up Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/using-jupyter-notebooks.html">
+     Using Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/python.html">
+     Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/pandas.html">
+     Data management in pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../files.html">
+   Data from the Files
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../files/from-PDF-to-txt-using-OCR.html">
+     Install the required packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../web.html">
+   Data from the Web
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="newspapers.html">
+     Downloading newspaper articles
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Undocument APIs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="YouTube.html">
+     Youtube
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/web/undocumented.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nealcaren/recipes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nealcaren/recipes/master?urlpath=tree/web/undocumented.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/nealcaren/recipes/blob/master/web/undocumented.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="undocument-apis">
+<h1>Undocument APIs<a class="headerlink" href="#undocument-apis" title="Permalink to this headline">¶</a></h1>
+<p>Social scientists are often interested in collecting massive amounts of digital data from specific websites. When you are fortunate, someone else has already scrapped it for you and has released in on <a class="reference external" href="https://github.com">GitHub</a> or as a <a class="reference external" href="https://www.kaggle.com/datasets">Kaggle dataset</a>. Sometimes the website provides an <a class="reference external" href="https://en.wikipedia.org/wiki/Web_API">API</a>, an interface for collecting the data in a systematic way that is usually reasonably well-document. The most prominent of these for social scientists is probably <a class="reference external" href="https://developer.twitter.com/en/docs.html">Twitter</a>, who have enabled hundreds of academic studies by making available information about posts and users.</p>
+<p>Other times, an API exists and is being used by the website, but information about is not publicly available. Most website searches, for example, involve using an internal web API. Your search term, along with other relevant parameters, is used to extract the corresponding results from a dataset and then displayed on a web page. While we see the data as part of a web page, the data is often transmitted in a different, more research-friend format, usually in a <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> format. Using an undocumented API allows you to systematically collect the data without the parsing the HTML of each page.</p>
+<p>Below, I walk through the steps I recently used  when trying to gather Fox News Opinion articles. In this case, the API doesn’t return the full text of the articles, but, as is often the case, returns all the metadata about the article, including the article URL for subsequent scraping.</p>
+<p>I use Python, but the overall logic is similar for other languages.</p>
+<p>I begin by enabling the developer toolbar on my browser. In Safari, this is under <strong>Preferences-&gt;Advanced</strong> and then clicking <strong>Show Develop Menu in Menu Bar</strong>. The process is similar in Chrome.</p>
+<p>I visited the front page.
+<img alt="frontpage" src="../_images/frontpage.png" /></p>
+<p>I clicked on <strong>Opinion</strong>, the section I wanted to scrape.
+<img alt="opinion" src="../_images/opinion.png" /></p>
+<p>I scrolled down the page and found a list of articles with a <strong>Show More</strong> button. This type of button, which leads to the next set of results, is a key component for understanding how the webpage is structured.<br />
+<img alt="more.png" src="../_images/more.png" /></p>
+<p>In this case, <strong>Show More</strong> does not load a new page but it does expand the number of results shown on the existing page. If you copy the link associated with this button (<code class="docutils literal notranslate"><span class="pre">https://www.foxnews.com/opinion#</span></code>) and paste it in a new browser window, it merely displays the first set of results, so that is a dead end for uncovering an API.</p>
+<p>To be confident that there might be a decent number of articles available, I clicked the <strong>Show More</strong> button several times. Each time it loaded more articles.
+<img alt="more.png" src="../_images/more2.png" /></p>
+<p>Lots of data is passed between my computer and the Foxnews website with each click. Additional information about these streams can be revealed through the <strong>Develop</strong> menu and then the <strong>Show Page Resources</strong> option.</p>
+<p><img alt="develop.png" src="../_images/develop.png" /></p>
+<p>This defaults to showing the page’s HTML code.
+<img alt="html.png" src="../_images/html.png" /></p>
+<p>To look for signs of an API, I click on the <strong>Network</strong> tab. Results are sometimes already listed, but I start clean by using the trash icon on the far right. With the <strong>Network</strong> tab visible, I then click <strong>Show More</strong> on the web page. Each resource exchanged between my computer and various servers are now displayed. When the action stops, I sort the list by size.
+<img alt="network.png" src="../_images/network1.png" /></p>
+<p>I now review each of the items for something that looks like the results of search API, a plain text file with the search results.</p>
+<p>Usually, the top of the list displays the images that the page retrieved. Images usually have a .png or .jpg extension. Selecting the first item in the results, an JPG with a name full of numbers, confirms that it is a picture.</p>
+<p><img alt="image.png" src="../_images/network_image.png" /></p>
+<p>The name of the second item, <strong>article-search</strong> has more promise. The <strong>Preview</strong> tab shows that this is a JSON object that appears to be a list of the articles that were returned after the <strong>Show More</strong> button was pressed. Bingo!</p>
+<p><img alt="image.png" src="../_images/network_search.png" /></p>
+<p>The <strong>Header</strong> tab reveals the specific URL that returned this JSON.
+<img alt="image.png" src="../_images/network_header.png" /></p>
+<p>The URL has all the signs of an undocumented API. First, it contains “API” as part of the string. Second, it includes a series of search parameters, such as <code class="docutils literal notranslate"><span class="pre">isCategory</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>.  Now I copy the URL and paste and save it as a Python string. I split the string over several lines to view it more clearly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://www.foxnews.com/api/article-search?&#39;</span>
+       <span class="s1">&#39;isCategory=true&amp;isTag=false&amp;isKeyword=false&amp;&#39;</span>
+       <span class="s1">&#39;isFixed=false&amp;isFeedUrl=false&amp;searchSelected=opinion&amp;&#39;</span>
+       <span class="s1">&#39;contentTypes=%7B</span><span class="si">%22i</span><span class="s1">nteractive%22:true,</span><span class="si">%22s</span><span class="s1">lideshow%22:true,%22video%22:false,</span><span class="si">%22a</span><span class="s1">rticle%22:true%7D&amp;&#39;</span>
+       <span class="s1">&#39;size=11&amp;offset=30&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next step is to see if Python can access the API with a straightforward command. Some APIs require confirmation that the search is originating from original websites, while others do not enforce that. Figuring out the right way to programmatically access the website is a process of trial and error. I use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<p>A status code of 200 means that something was returned.</p>
+<p>Since it looked like a JSON object when viewed in the browser, I take advantage of the <code class="docutils literal notranslate"><span class="pre">requests</span></code> JSON decoder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;category&#39;: {&#39;name&#39;: &quot;Laura Ingraham&#39;s Monologue&quot;,
+   &#39;url&#39;: &#39;/category/shows/ingraham-angle/transcript/lauras-monologue&#39;},
+  &#39;description&#39;: &quot;Another day, another wacky liberal steps on to the 2020 field. And although it wasn&#39;t a real surprise when Vermont socialist, Bernie Sanders decided to formally enter the race, it&#39;s always stunning to hear what the Muppet-like leftie actually believes.&quot;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/20/348/196/694940094001_6004324363001_6004323407001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-20T08:39:06-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-20T08:39:06-05:00&#39;,
+  &#39;title&#39;: &#39;Laura Ingraham: Meet the candidates – Every day another wacky liberal steps on to the 2020 field&#39;,
+  &#39;url&#39;: &#39;/opinion/laura-ingraham-meet-the-candidates-every-day-another-wacky-liberal-steps-on-to-the-2020-field&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &quot;Tucker Carlson&#39;s Monologue&quot;,
+   &#39;url&#39;: &#39;/category/shows/tucker-carlson-tonight/transcript/tuckers-monologue&#39;},
+  &#39;description&#39;: &#39;Identity politics is a tactic designed to prevent conversations dangerous to the ruling class, obviously. It is also a way for some of the most privileged people in America to recast themselves as victims.\xa0&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/20/348/196/694940094001_6004284786001_6004281395001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-20T07:13:09-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-20T07:13:09-05:00&#39;,
+  &#39;title&#39;: &quot;Tucker Carlson: Identity politics is a scam and it&#39;s not so different from the one Jussie Smollett just pulled&quot;,
+  &#39;url&#39;: &#39;/opinion/tucker-carlson-identity-politics-is-a-scam-and-its-not-so-different-from-the-one-jussie-smollett-just-pulled&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;As this socialist tragedy unfolds in Venezuela, my questions is this: Do the American people know how deadly socialism is, and how real the threat of it is here in the United States?&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/19/348/196/694940094001_6003795855001_6003798058001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-20T04:00:51-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-20T04:00:51-05:00&#39;,
+  &#39;title&#39;: &#39;Charlie Kirk: Americans must wake up and fight against the socialist movement that’s already well underway&#39;,
+  &#39;url&#39;: &#39;/opinion/charlie-kirk-americans-must-wake-up-and-fight-against-the-socialist-movement-thats-already-well-underway&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;I lost a friend last week. She was 42 years old, and it was a drug overdose. She was beautiful, smart, kind. I gave a eulogy at her funeral. Peering at her loved ones and our mutual friends through a wall of tears, I said she had been a burst of color in a gray world. She was a real person, and now she’s gone.&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/01/16/348/196/694940094001_5989963110001_5989957792001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-20T04:00:43-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-20T04:00:43-05:00&#39;,
+  &#39;title&#39;: &#39;The opioid epidemic keeps killing my friends&#39;,
+  &#39;url&#39;: &#39;/opinion/the-opioid-epidemic-keeps-killing-my-friends&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;Trump has gotten Pyongyang to come to Hanoi. Now the challenge is for Pyongyang to become Hanoi.&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2019/02/348/196/NKO020619-e1549447177848.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-20T04:00:24-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-20T04:00:24-05:00&#39;,
+  &#39;title&#39;: &quot;Trump&#39;s big challenge at the upcoming North Korea summit&quot;,
+  &#39;url&#39;: &#39;/opinion/trumps-big-challenge-at-the-upcoming-north-korea-summit&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;Rep. Ilhan Omar is a leading critic of Israel in Congress and pretends this has nothing to do with her feelings about the Jewish people.&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/16/348/196/694940094001_6003003306001_6003006060001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-20T04:00:12-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-20T04:00:12-05:00&#39;,
+  &#39;title&#39;: &#39;Dems shouldn’t support anti-Israel Rep. Ilhan Omar – She doesn’t speak for me and other American Muslims&#39;,
+  &#39;url&#39;: &#39;/opinion/dems-shouldnt-support-anti-israel-rep-ilhan-omar-she-doesnt-speak-for-me-and-other-american-muslims&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;Democratic socialist Bernie Sanders is running for the Democratic presidential nomination again, as the far left struggles with moderates for control of the party.&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/19/348/196/694940094001_6004224104001_6004219774001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-19T19:53:25-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-19T19:53:25-05:00&#39;,
+  &#39;title&#39;: &#39;Bernie Sanders’ presidential candidacy will further fracture Democratic Party&#39;,
+  &#39;url&#39;: &#39;/opinion/bernie-sanders-presidential-candidacy-will-further-fracture-democratic-party&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;When someone invokes the ugliness of hate crimes for fraudulent ends, they disrespect every real victim of every lynching and racist attack down through the years.&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/19/348/196/694940094001_6003636660001_6003633662001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-19T13:41:44-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-19T13:41:44-05:00&#39;,
+  &#39;title&#39;: &#39;Geraldo Rivera: If Jussie Smollett’s attack was a hoax, victims of real hate crime will pay the price&#39;,
+  &#39;url&#39;: &#39;/opinion/geraldo-rivera-if-jussie-smolletts-attack-was-a-hoax-victims-of-real-hate-crime-will-pay-the-price&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;Did you notice how, during the Andrew McCabe interview with &quot;60 Minutes,&quot; the former FBI acting director kept talking about “articulable facts?”&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/19/348/196/694940094001_6003910071001_6003906789001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-19T12:07:39-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-19T12:07:39-05:00&#39;,
+  &#39;title&#39;: &quot;Dan Bongino: Like Comey and Brennan, McCabe finds impetus of Trump probe &#39;inarticulable&#39;&quot;,
+  &#39;url&#39;: &#39;/opinion/dan-bongino-like-comey-and-brennan-mccabe-finds-impetus-of-trump-probe-inarticulable&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &quot;China and the West are locked in a struggle for control of the future of communication technology. If America doesn&#39;t take decisive action soon, we&#39;ll lose.&quot;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/348/196/ap18143328116561.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-19T11:58:24-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-19T11:58:24-05:00&#39;,
+  &#39;title&#39;: &#39;Newt Gingrich:  America in race against China - and the clock - to control future of tech&#39;,
+  &#39;url&#39;: &#39;/opinion/newt-gingrich-america-in-race-against-china-and-the-clock-to-control-future-of-tech&#39;},
+ {&#39;category&#39;: {&#39;name&#39;: &#39;OPINION&#39;, &#39;url&#39;: &#39;/category/opinion&#39;},
+  &#39;description&#39;: &#39;Many experts on the Middle East never thought they’d see the day the foreign ministers of Saudi Arabia, Bahrain, Oman and the United Arab Emirates would be sitting collegially with the prime minister of Israel.&#39;,
+  &#39;duration&#39;: &#39;&#39;,
+  &#39;imageUrl&#39;: &#39;https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/02/11/348/196/694940094001_6000890885001_6000881936001-vs.jpg?ve=1&amp;tl=1&#39;,
+  &#39;isBreaking&#39;: False,
+  &#39;isLive&#39;: False,
+  &#39;lastPublishedDate&#39;: &#39;2019-02-19T10:45:37-05:00&#39;,
+  &#39;publicationDate&#39;: &#39;2019-02-19T10:45:37-05:00&#39;,
+  &#39;title&#39;: &#39;Iran should return to ancient teachings of Islam, a religion hijacked in 1979 by a dictatorial regime&#39;,
+  &#39;url&#39;: &#39;/opinion/iran-should-return-to-ancient-teachings-of-islam-a-religion-hijacked-in-1979-by-a-dictatorial-regime&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The best way to turn a JSON into usable a format is with the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>{'name': 'Laura Ingraham's Monologue', 'url': ...</td>
+      <td>Another day, another wacky liberal steps on to...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>Laura Ingraham: Meet the candidates – Every da...</td>
+      <td>/opinion/laura-ingraham-meet-the-candidates-ev...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>{'name': 'Tucker Carlson's Monologue', 'url': ...</td>
+      <td>Identity politics is a tactic designed to prev...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>Tucker Carlson: Identity politics is a scam an...</td>
+      <td>/opinion/tucker-carlson-identity-politics-is-a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>{'name': 'OPINION', 'url': '/category/opinion'}</td>
+      <td>As this socialist tragedy unfolds in Venezuela...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>Charlie Kirk: Americans must wake up and fight...</td>
+      <td>/opinion/charlie-kirk-americans-must-wake-up-a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>{'name': 'OPINION', 'url': '/category/opinion'}</td>
+      <td>I lost a friend last week. She was 42 years ol...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>The opioid epidemic keeps killing my friends</td>
+      <td>/opinion/the-opioid-epidemic-keeps-killing-my-...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>{'name': 'OPINION', 'url': '/category/opinion'}</td>
+      <td>Trump has gotten Pyongyang to come to Hanoi. N...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>Trump's big challenge at the upcoming North Ko...</td>
+      <td>/opinion/trumps-big-challenge-at-the-upcoming-...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>That looks pretty good. The JSON appears to have some nested elements in it. For example, Category contains a dictionary. These can often be flattened with <code class="docutils literal notranslate"><span class="pre">json_normalize</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="kn">import</span> <span class="n">json_normalize</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Laura Ingraham's Monologue</td>
+      <td>/category/shows/ingraham-angle/transcript/laur...</td>
+      <td>Another day, another wacky liberal steps on to...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>Laura Ingraham: Meet the candidates – Every da...</td>
+      <td>/opinion/laura-ingraham-meet-the-candidates-ev...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tucker Carlson's Monologue</td>
+      <td>/category/shows/tucker-carlson-tonight/transcr...</td>
+      <td>Identity politics is a tactic designed to prev...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>Tucker Carlson: Identity politics is a scam an...</td>
+      <td>/opinion/tucker-carlson-identity-politics-is-a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>As this socialist tragedy unfolds in Venezuela...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>Charlie Kirk: Americans must wake up and fight...</td>
+      <td>/opinion/charlie-kirk-americans-must-wake-up-a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I lost a friend last week. She was 42 years ol...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>The opioid epidemic keeps killing my friends</td>
+      <td>/opinion/the-opioid-epidemic-keeps-killing-my-...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Trump has gotten Pyongyang to come to Hanoi. N...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>Trump's big challenge at the upcoming North Ko...</td>
+      <td>/opinion/trumps-big-challenge-at-the-upcoming-...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Great! This process demonstrates that FoxNews has an undocumented API that can be accessed via Python. The dataset, however, only has a few cases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next step is to see if more data can be collected. I usually focus on two parameters: How do I get to the next set of results? Can I get more results with each call?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.foxnews.com/api/article-search?isCategory=true&amp;isTag=false&amp;isKeyword=false&amp;isFixed=false&amp;isFeedUrl=false&amp;searchSelected=opinion&amp;contentTypes=%7B%22interactive%22:true,%22slideshow%22:true,%22video%22:false,%22article%22:true%7D&amp;size=11&amp;offset=30
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking back at the URL, the likely suspects for manipulation are <code class="docutils literal notranslate"><span class="pre">size</span></code>, which usually determines the number of results, and <code class="docutils literal notranslate"><span class="pre">offset</span></code> which usually means “start with the nth result”. I first check to see how many results can be returned in one call. If the answer is 10,000, I don’t need to do much more.</p>
+<p>Since I’ll be making many calls using the API, I write a quick function to take the URL and return a dataframe. Once I’m confident it will work, I would likely make a more robust function that allows more direct manipulation of the parameters, but I don’t want to spend too much time on that if the whole API is a dead end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fox_df</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Return a dataframe of length&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I confirm that the function works using the original url.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fox_df</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Laura Ingraham's Monologue</td>
+      <td>/category/shows/ingraham-angle/transcript/laur...</td>
+      <td>Another day, another wacky liberal steps on to...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>Laura Ingraham: Meet the candidates – Every da...</td>
+      <td>/opinion/laura-ingraham-meet-the-candidates-ev...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tucker Carlson's Monologue</td>
+      <td>/category/shows/tucker-carlson-tonight/transcr...</td>
+      <td>Identity politics is a tactic designed to prev...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>Tucker Carlson: Identity politics is a scam an...</td>
+      <td>/opinion/tucker-carlson-identity-politics-is-a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>As this socialist tragedy unfolds in Venezuela...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>Charlie Kirk: Americans must wake up and fight...</td>
+      <td>/opinion/charlie-kirk-americans-must-wake-up-a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I lost a friend last week. She was 42 years ol...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>The opioid epidemic keeps killing my friends</td>
+      <td>/opinion/the-opioid-epidemic-keeps-killing-my-...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Trump has gotten Pyongyang to come to Hanoi. N...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>Trump's big challenge at the upcoming North Ko...</td>
+      <td>/opinion/trumps-big-challenge-at-the-upcoming-...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Rep. Ilhan Omar is a leading critic of Israel ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:12-05:00</td>
+      <td>2019-02-20T04:00:12-05:00</td>
+      <td>Dems shouldn’t support anti-Israel Rep. Ilhan ...</td>
+      <td>/opinion/dems-shouldnt-support-anti-israel-rep...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Democratic socialist Bernie Sanders is running...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T19:53:25-05:00</td>
+      <td>2019-02-19T19:53:25-05:00</td>
+      <td>Bernie Sanders’ presidential candidacy will fu...</td>
+      <td>/opinion/bernie-sanders-presidential-candidacy...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>When someone invokes the ugliness of hate crim...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T13:41:44-05:00</td>
+      <td>2019-02-19T13:41:44-05:00</td>
+      <td>Geraldo Rivera: If Jussie Smollett’s attack wa...</td>
+      <td>/opinion/geraldo-rivera-if-jussie-smolletts-at...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Did you notice how, during the Andrew McCabe i...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T12:07:39-05:00</td>
+      <td>2019-02-19T12:07:39-05:00</td>
+      <td>Dan Bongino: Like Comey and Brennan, McCabe fi...</td>
+      <td>/opinion/dan-bongino-like-comey-and-brennan-mc...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>China and the West are locked in a struggle fo...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T11:58:24-05:00</td>
+      <td>2019-02-19T11:58:24-05:00</td>
+      <td>Newt Gingrich:  America in race against China ...</td>
+      <td>/opinion/newt-gingrich-america-in-race-against...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Many experts on the Middle East never thought ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T10:45:37-05:00</td>
+      <td>2019-02-19T10:45:37-05:00</td>
+      <td>Iran should return to ancient teachings of Isl...</td>
+      <td>/opinion/iran-should-return-to-ancient-teachin...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As a first attempt, I try to retrieve 100 results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url100</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;size=11&#39;</span><span class="p">,</span><span class="s1">&#39;size=100&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 30
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Laura Ingraham's Monologue</td>
+      <td>/category/shows/ingraham-angle/transcript/laur...</td>
+      <td>Another day, another wacky liberal steps on to...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>2019-02-20T08:39:06-05:00</td>
+      <td>Laura Ingraham: Meet the candidates – Every da...</td>
+      <td>/opinion/laura-ingraham-meet-the-candidates-ev...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tucker Carlson's Monologue</td>
+      <td>/category/shows/tucker-carlson-tonight/transcr...</td>
+      <td>Identity politics is a tactic designed to prev...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>2019-02-20T07:13:09-05:00</td>
+      <td>Tucker Carlson: Identity politics is a scam an...</td>
+      <td>/opinion/tucker-carlson-identity-politics-is-a...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>As this socialist tragedy unfolds in Venezuela...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>2019-02-20T04:00:51-05:00</td>
+      <td>Charlie Kirk: Americans must wake up and fight...</td>
+      <td>/opinion/charlie-kirk-americans-must-wake-up-a...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I lost a friend last week. She was 42 years ol...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>2019-02-20T04:00:43-05:00</td>
+      <td>The opioid epidemic keeps killing my friends</td>
+      <td>/opinion/the-opioid-epidemic-keeps-killing-my-...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Trump has gotten Pyongyang to come to Hanoi. N...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>2019-02-20T04:00:24-05:00</td>
+      <td>Trump's big challenge at the upcoming North Ko...</td>
+      <td>/opinion/trumps-big-challenge-at-the-upcoming-...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Rep. Ilhan Omar is a leading critic of Israel ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-20T04:00:12-05:00</td>
+      <td>2019-02-20T04:00:12-05:00</td>
+      <td>Dems shouldn’t support anti-Israel Rep. Ilhan ...</td>
+      <td>/opinion/dems-shouldnt-support-anti-israel-rep...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Democratic socialist Bernie Sanders is running...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T19:53:25-05:00</td>
+      <td>2019-02-19T19:53:25-05:00</td>
+      <td>Bernie Sanders’ presidential candidacy will fu...</td>
+      <td>/opinion/bernie-sanders-presidential-candidacy...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>When someone invokes the ugliness of hate crim...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T13:41:44-05:00</td>
+      <td>2019-02-19T13:41:44-05:00</td>
+      <td>Geraldo Rivera: If Jussie Smollett’s attack wa...</td>
+      <td>/opinion/geraldo-rivera-if-jussie-smolletts-at...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Did you notice how, during the Andrew McCabe i...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T12:07:39-05:00</td>
+      <td>2019-02-19T12:07:39-05:00</td>
+      <td>Dan Bongino: Like Comey and Brennan, McCabe fi...</td>
+      <td>/opinion/dan-bongino-like-comey-and-brennan-mc...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>China and the West are locked in a struggle fo...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T11:58:24-05:00</td>
+      <td>2019-02-19T11:58:24-05:00</td>
+      <td>Newt Gingrich:  America in race against China ...</td>
+      <td>/opinion/newt-gingrich-america-in-race-against...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Many experts on the Middle East never thought ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T10:45:37-05:00</td>
+      <td>2019-02-19T10:45:37-05:00</td>
+      <td>Iran should return to ancient teachings of Isl...</td>
+      <td>/opinion/iran-should-return-to-ancient-teachin...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I have often argued that we don't have a true ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T10:19:52-05:00</td>
+      <td>2019-02-19T10:19:52-05:00</td>
+      <td>Judge Andrew Napolitano: The need for the cons...</td>
+      <td>/opinion/judge-andrew-napolitano-the-need-for-...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>In a viral exchange at a congressional hearing...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T08:51:59-05:00</td>
+      <td>2019-02-19T08:51:59-05:00</td>
+      <td>Rich Lowry: Ilhan Omar’s big lie</td>
+      <td>/opinion/rich-lowry-ilhan-omars-big-lie</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Why does the left insist on inventing bigoted ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T06:35:18-05:00</td>
+      <td>2019-02-19T06:35:18-05:00</td>
+      <td>Tucker Carlson: Why the left so desperately wa...</td>
+      <td>/opinion/tucker-carlson-why-the-left-so-desper...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The new generation of Democrats in power may l...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T04:00:46-05:00</td>
+      <td>2019-02-19T04:00:46-05:00</td>
+      <td>New Dem members of Congress may look diverse b...</td>
+      <td>/opinion/new-dem-members-of-congress-may-look-...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I spent much of the last few years travelling ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T04:00:42-05:00</td>
+      <td>2019-02-19T04:00:42-05:00</td>
+      <td>Trump's election was fueled by social decay an...</td>
+      <td>/opinion/trumps-election-was-fueled-by-social-...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Alexandria Ocasio-Cortez has done our country ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T04:00:41-05:00</td>
+      <td>2019-02-19T04:00:41-05:00</td>
+      <td>Liz Peek: Alexandria Ocasio-Cortez’s Amazon ta...</td>
+      <td>/opinion/liz-peek-alexandria-ocasio-cortezs-am...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Pat Caddell very simply invented political con...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T04:00:27-05:00</td>
+      <td>2019-02-19T04:00:27-05:00</td>
+      <td>Doug Schoen: Remembering Pat Caddell -- a coll...</td>
+      <td>/opinion/doug-schoen-remembering-pat-caddell-a...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>There’s absolutely no need for the strong arm ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T04:00:14-05:00</td>
+      <td>2019-02-19T04:00:14-05:00</td>
+      <td>Virginia’s ‘Green New Deal’ exposes what Democ...</td>
+      <td>/opinion/virginias-green-new-deal-exposes-what...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The fight against drug trafficking in our coun...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-19T04:00:12-05:00</td>
+      <td>2019-02-19T04:00:12-05:00</td>
+      <td>Rep. Michael Guest: President Trump’s border w...</td>
+      <td>/opinion/rep-michael-guest-president-trumps-bo...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Andrew McCabe is a good witness and he made a ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T13:16:06-05:00</td>
+      <td>2019-02-18T13:16:06-05:00</td>
+      <td>Andrew McCarthy: McCabe and ‘60 Minutes’ avoid...</td>
+      <td>/opinion/andrew-mccarthy-mccabe-and-60-minutes...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Public weariness, combined with hyperventilati...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T12:42:43-05:00</td>
+      <td>2019-02-18T12:42:43-05:00</td>
+      <td>As Democrats and Republicans barrel toward 202...</td>
+      <td>/opinion/as-democrats-and-republicans-barrel-t...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Faith &amp; Values</td>
+      <td>/category/faith-values</td>
+      <td>In order to move past tragedies, we must allow...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T10:45:04-05:00</td>
+      <td>2019-02-18T10:45:04-05:00</td>
+      <td>4 ways to overcome trauma and tragedy (always ...</td>
+      <td>/opinion/4-ways-to-overcome-trauma-and-tragedy...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Amazon</td>
+      <td>/category/tech/companies/amazon</td>
+      <td>Amazon’s decision last week to scrap plans for...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T08:16:20-05:00</td>
+      <td>2019-02-18T08:16:20-05:00</td>
+      <td>Michael Goodwin: Amazon's New York debacle ope...</td>
+      <td>/opinion/michael-goodwin-amazons-new-york-deba...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>The Next Revolution</td>
+      <td>/category/shows/the-next-revolution</td>
+      <td>A New York Times op-ed by Jonathan Rauch and P...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T07:42:33-05:00</td>
+      <td>2019-02-18T07:42:33-05:00</td>
+      <td>Steve Hilton: Never Trumpers just hate that Tr...</td>
+      <td>/opinion/steve-hilton-never-trumpers-just-hate...</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>While John Wayne might have eschewed backup ca...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T04:00:56-05:00</td>
+      <td>2019-02-18T04:00:56-05:00</td>
+      <td>No Presidents Day car sales for me: What I lea...</td>
+      <td>/opinion/no-presidents-day-car-sales-for-me-wh...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The political world barely raised its eyebrows...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T04:00:31-05:00</td>
+      <td>2019-02-18T04:00:31-05:00</td>
+      <td>Democrats ignore Bernie Sanders’ 2020 announce...</td>
+      <td>/opinion/democrats-ignore-bernie-sanders-2020-...</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>On President’s Day, perhaps it would be helpfu...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T04:00:24-05:00</td>
+      <td>2019-02-18T04:00:24-05:00</td>
+      <td>On Presidents Day, honor those who have served...</td>
+      <td>/opinion/on-presidents-day-honor-those-who-hav...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Andrew McCabe lied multiple times to federal i...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T04:00:21-05:00</td>
+      <td>2019-02-18T04:00:21-05:00</td>
+      <td>Jason Chaffetz: FBI’s Andrew McCabe should be ...</td>
+      <td>/opinion/jason-chaffetz-fbis-andrew-mccabe-sho...</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Ask any college senior where the best jobs are...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-18T04:00:13-05:00</td>
+      <td>2019-02-18T04:00:13-05:00</td>
+      <td>Don't put flyover country in a corner. It's le...</td>
+      <td>/opinion/dont-put-flyover-country-in-a-corner-...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This does not return 100 results, but it does return 30, which appears to be the internal maximum.  Collecting a larger corpus of article metadata will need to be done in batches of 30.</p>
+<p>The next question is how far back can the API go? Here, the first suspect is the <code class="docutils literal notranslate"><span class="pre">offset</span></code> parameter. The current value of 30 is usually associated with starting with the 30th results. So an <code class="docutils literal notranslate"><span class="pre">offset</span></code> of 30 with a <code class="docutils literal notranslate"><span class="pre">size</span></code> of <code class="docutils literal notranslate"><span class="pre">10</span></code> is likely to return results 30-39.</p>
+<p>As a first pass, I set the value of <code class="docutils literal notranslate"><span class="pre">offset</span></code> to 0 to get the most recent results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_off</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=30&#39;</span><span class="p">,</span><span class="s1">&#39;offset=0&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url_off</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Laura Ingraham's Monologue</td>
+      <td>/category/shows/ingraham-angle/transcript/laur...</td>
+      <td>Jussie Smollett could not resist the allure of...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T08:11:57-05:00</td>
+      <td>2019-02-22T08:11:57-05:00</td>
+      <td>Laura Ingraham: Jussie Smollett learned that v...</td>
+      <td>/opinion/laura-ingraham-smollett-learned-that-...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tucker Carlson's Monologue</td>
+      <td>/category/shows/tucker-carlson-tonight/transcr...</td>
+      <td>What Smollett allegedly did was not simply ill...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T07:47:57-05:00</td>
+      <td>2019-02-22T07:47:57-05:00</td>
+      <td>Tucker Carlson: Jussie Smollett pretended to b...</td>
+      <td>/opinion/tucker-carlson-jussie-smollett-preten...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sean Hannity's Monologue</td>
+      <td>/category/shows/hannity/transcript/hannitys-mo...</td>
+      <td>The Smollett case proves what I have been sayi...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T07:02:10-05:00</td>
+      <td>2019-02-22T07:02:10-05:00</td>
+      <td>Sean Hannity: Smollett case proves that journa...</td>
+      <td>/opinion/sean-hannity-smollett-case-proves-tha...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tucker Carlson's Monologue</td>
+      <td>/category/shows/tucker-carlson-tonight/transcr...</td>
+      <td>Tucker Carlson: What you should know about 'wo...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T06:54:34-05:00</td>
+      <td>2019-02-22T06:51:51-05:00</td>
+      <td>Tucker Carlson: 'Woke' billionaires love socia...</td>
+      <td>/opinion/tucker-carlson-woke-billionaires-love...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>To reduce this flow of illegal immigrants, the...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T04:00:27-05:00</td>
+      <td>2019-02-22T04:00:27-05:00</td>
+      <td>A border wall isn’t enough – Asylum laws must ...</td>
+      <td>/opinion/a-border-wall-isnt-enough-asylum-laws...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The left complains that conservatives are "obs...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T04:00:23-05:00</td>
+      <td>2019-02-22T04:00:23-05:00</td>
+      <td>Marc Thiessen: Alexandria Ocasio-Cortez is an ...</td>
+      <td>/opinion/marc-thiessen-alexandria-ocasio-corte...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The Green New Deal would bring economic ruin a...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T04:00:15-05:00</td>
+      <td>2019-02-22T04:00:15-05:00</td>
+      <td>Green New Deal support could doom Dem presiden...</td>
+      <td>/opinion/green-new-deal-support-could-doom-dem...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>From Supreme Court Justice Brett Kavanaugh to ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-22T04:00:03-05:00</td>
+      <td>2019-02-22T04:00:03-05:00</td>
+      <td>On Smollett, Covington and Kavanaugh, anti-Tru...</td>
+      <td>/opinion/on-smollett-covington-and-kavanaugh-a...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The Justice Department should file an indictme...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-21T18:59:10-05:00</td>
+      <td>2019-02-21T18:59:10-05:00</td>
+      <td>Andrew McCarthy: Indict the ‘ISIS Bride’</td>
+      <td>/opinion/andrew-mccarthy-indict-the-isis-bride</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The activist press embraced Jussie Smollett as...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-21T18:23:31-05:00</td>
+      <td>2019-02-21T18:23:31-05:00</td>
+      <td>Gutfeld on Smollett’s arrest</td>
+      <td>/opinion/gutfeld-on-smolletts-arrest</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Over half a dozen rescue workers in South Afri...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-21T16:15:22-05:00</td>
+      <td>2019-02-21T16:15:22-05:00</td>
+      <td>Amid abortion debate, miraculous rescue of bab...</td>
+      <td>/opinion/amid-abortion-debate-miraculous-rescu...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lastPublicationDate</span></code> value of the first row is 2019-02-08. Hopefully a larger value will be associated with articles published earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_off</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=30&#39;</span><span class="p">,</span><span class="s1">&#39;offset=100&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url_off</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Critics of the Amazon plan can rejoice in thei...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T16:17:04-05:00</td>
+      <td>2019-02-14T16:17:04-05:00</td>
+      <td>Amazon quits New York -- 'Victory' by progress...</td>
+      <td>/opinion/amazon-quits-new-york-victory-by-prog...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Attorney General Barr is the right man for the...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T13:49:21-05:00</td>
+      <td>2019-02-14T13:49:21-05:00</td>
+      <td>William Barr is our new attorney general -- He...</td>
+      <td>/opinion/william-barr-is-our-new-attorney-gene...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>President Trump’s standing has improved over t...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T13:32:30-05:00</td>
+      <td>2019-02-14T13:32:30-05:00</td>
+      <td>Karl Rove: Trump's approval numbers are going ...</td>
+      <td>/opinion/karl-rove-trumps-approval-numbers-are...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>All signs indicate that Special Counsel Robert...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T11:47:24-05:00</td>
+      <td>2019-02-14T11:47:24-05:00</td>
+      <td>David Bossie: Mueller should end his probe and...</td>
+      <td>/opinion/david-bossie-mueller-should-end-his-p...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Kamala Harris cannot erase her connections to ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T11:38:28-05:00</td>
+      <td>2019-02-14T11:37:57-05:00</td>
+      <td>Kamala Harris is a longtime ally of government...</td>
+      <td>/opinion/kamala-harris-is-a-longtime-ally-of-g...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Faith &amp; Values</td>
+      <td>/category/faith-values</td>
+      <td>The heart of Christianity is love. The whole b...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T10:14:40-05:00</td>
+      <td>2019-02-14T10:14:40-05:00</td>
+      <td>Valentine’s Day: The ‘heart’ of Christianity i...</td>
+      <td>/opinion/valentines-day-the-heart-of-christian...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I have been beneath the wedding canopy with mo...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T09:32:35-05:00</td>
+      <td>2019-02-14T04:00:25-05:00</td>
+      <td>A Valentine's Day lesson: I have married over ...</td>
+      <td>/opinion/a-valentines-day-lesson-i-have-marrie...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tucker Carlson's Monologue</td>
+      <td>/category/shows/tucker-carlson-tonight/transcr...</td>
+      <td>The Green New Deal is not about the environmen...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T08:33:26-05:00</td>
+      <td>2019-02-14T08:33:26-05:00</td>
+      <td>Tucker Carlson: Green New Deal is a religious ...</td>
+      <td>/opinion/tucker-carlson-green-new-deal-is-a-re...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Laura Ingraham's Monologue</td>
+      <td>/category/shows/ingraham-angle/transcript/laur...</td>
+      <td>Oh the excitement, oh the promise, it seems li...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T08:05:54-05:00</td>
+      <td>2019-02-14T08:05:54-05:00</td>
+      <td>Laura Ingraham: California's high speed rail w...</td>
+      <td>/opinion/laura-ingraham-californias-high-speed...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>It never ceases to amaze that liberals and pro...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T07:35:42-05:00</td>
+      <td>2019-02-14T04:00:57-05:00</td>
+      <td>Tammy Bruce: Elizabeth Warren, Democrats and t...</td>
+      <td>/opinion/tammy-bruce-elizabeth-warren-democrat...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Sean Hannity's Monologue</td>
+      <td>/category/shows/hannity/transcript/hannitys-mo...</td>
+      <td>We know this is a president that keeps his pro...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2019-02-14T07:06:37-05:00</td>
+      <td>2019-02-14T07:06:37-05:00</td>
+      <td>Sean Hannity: Trump keeps his promises. I pred...</td>
+      <td>/opinion/sean-hannity-trump-keeps-his-promises...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The article with an offset value of 100 was published on 2019-02-01, or roughly a week before our offset 0. Perfect! Increasing the offset value yields additional article metadata in chronological order.</p>
+<p>Next, how far back can we go?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_off</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=30&#39;</span><span class="p">,</span><span class="s1">&#39;offset=1000&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url_off</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The death of a president brings our nation tog...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-05T04:00:35-05:00</td>
+      <td>2018-12-05T04:00:35-05:00</td>
+      <td>Remembering George H.W. Bush: Why does it take...</td>
+      <td>/opinion/remembering-george-h-w-bush-why-does-...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>House Democrats are planning to go after Presi...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-05T04:00:07-05:00</td>
+      <td>2018-12-05T04:00:07-05:00</td>
+      <td>David Bossie: House Democrats plan a witch hun...</td>
+      <td>/opinion/david-bossie-house-democrats-plan-a-w...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>The struggle to juggle and balance career and ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-05T04:00:06-05:00</td>
+      <td>2018-12-05T04:00:06-05:00</td>
+      <td>Leslie Marshall: Michelle Obama told the truth...</td>
+      <td>/opinion/leslie-marshall-michelle-obama-told-t...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>This morning Google told me that it would not ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-05T04:00:06-05:00</td>
+      <td>2018-12-05T04:00:06-05:00</td>
+      <td>John Stossel: Google and Facebook cross 'The C...</td>
+      <td>/opinion/john-stossel-google-and-facebook-cros...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>President George H.W. Bush called on us to be ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-05T04:00:06-05:00</td>
+      <td>2018-12-05T04:00:06-05:00</td>
+      <td>Marc Thiessen: For just a few days, let's be t...</td>
+      <td>/opinion/marc-thiessen-for-just-a-few-days-let...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>A sentencing memo that Special Counsel Robert ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-05T00:53:12-05:00</td>
+      <td>2018-12-05T00:53:12-05:00</td>
+      <td>Gregg Jarrett: Mueller strikes out trying to n...</td>
+      <td>/opinion/mueller-strikes-out-trying-to-nail-tr...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Democrats need to embrace moderate policies to...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T18:42:11-05:00</td>
+      <td>2018-12-04T18:42:11-05:00</td>
+      <td>Doug Schoen: Democrats will be hurt by radical...</td>
+      <td>/opinion/doug-schoen-democrats-will-be-hurt-by...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>People come and go on our planet, and in our l...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T17:40:03-05:00</td>
+      <td>2018-12-04T17:40:03-05:00</td>
+      <td>Gutfeld on the passing of George Herbert Walke...</td>
+      <td>/opinion/gutfeld-on-the-passing-of-george-herb...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>I understand that millions of Americans still ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T16:27:20-05:00</td>
+      <td>2018-12-04T16:27:20-05:00</td>
+      <td>Geraldo Rivera: Migrants at our border want a ...</td>
+      <td>/opinion/geraldo-rivera-migrants-at-our-border...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>People from around the world are recalling Pr...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T16:25:31-05:00</td>
+      <td>2018-12-04T16:19:21-05:00</td>
+      <td>George H.W. Bush's service dog 'Sully' isn't a...</td>
+      <td>/opinion/george-h-w-bushs-service-dog-sully-is...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>As I sat a few feet from President Trump while...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T13:27:48-05:00</td>
+      <td>2018-12-04T13:27:48-05:00</td>
+      <td>Michael Goodwin: Trump is prepping for all-out...</td>
+      <td>/opinion/michael-goodwin-trump-is-prepping-for...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>An offset of 1,000 takes us back about nine months.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_off</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=30&#39;</span><span class="p">,</span><span class="s1">&#39;offset=5000&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url_off</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Americas</td>
+      <td>/category/world/world-regions/americas</td>
+      <td>Over the weekend, Venezuela succumbed to dicta...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:01:26-04:00</td>
+      <td>2017-08-02T10:00:00-04:00</td>
+      <td>The world must turn back Venezuela's growing d...</td>
+      <td>/opinion/the-world-must-turn-back-venezuelas-g...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bellwether</td>
+      <td>/category/columns/bellwether</td>
+      <td>Just as President Trump prepares to sign punis...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:01:16-04:00</td>
+      <td>2017-08-02T10:11:00-04:00</td>
+      <td>Putin sends Trump a message: Don't mess with us</td>
+      <td>/opinion/putin-sends-trump-a-message-dont-mess...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Law</td>
+      <td>/category/politics/executive/law</td>
+      <td>Special Counsel Robert Mueller has lost his cr...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:01:05-04:00</td>
+      <td>2017-08-02T10:21:00-04:00</td>
+      <td>Rep. Trent Franks: Robert Mueller must resign</td>
+      <td>/opinion/rep-trent-franks-robert-mueller-must-...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Health care</td>
+      <td>/category/politics/executive/health-care</td>
+      <td>Conservatives should recognize that the key to...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:00:53-04:00</td>
+      <td>2017-08-02T12:00:00-04:00</td>
+      <td>Newt Gingrich: Republicans must resist the urg...</td>
+      <td>/opinion/newt-gingrich-republicans-must-resist...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Budgets</td>
+      <td>/category/politics/executive/budgets</td>
+      <td>I follow the news closely, but until I researc...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:00:40-04:00</td>
+      <td>2017-08-02T15:30:00-04:00</td>
+      <td>John Stossel: The Trump budget</td>
+      <td>/opinion/john-stossel-the-trump-budget</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>POLITICS</td>
+      <td>/category/politics</td>
+      <td>When the New Yorker's Ryan Lizza first made pu...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:00:31-04:00</td>
+      <td>2017-08-02T11:17:00-04:00</td>
+      <td>The latest lesson in media hypocrisy courtesy ...</td>
+      <td>/opinion/the-latest-lesson-in-media-hypocrisy-...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>White House</td>
+      <td>/category/politics/executive/white-house</td>
+      <td>An old story from Albany is unforgettable.</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:00:16-04:00</td>
+      <td>2017-08-02T11:41:00-04:00</td>
+      <td>Trump must learn to wield his political power ...</td>
+      <td>/opinion/trump-must-learn-to-wield-his-politic...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Law</td>
+      <td>/category/politics/executive/law</td>
+      <td>There was a time, not so long ago, when candid...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T17:00:05-04:00</td>
+      <td>2017-08-02T12:17:00-04:00</td>
+      <td>Gregg Jarrett: A second special counsel must i...</td>
+      <td>/opinion/gregg-jarrett-a-second-special-counse...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>IMMIGRATION</td>
+      <td>/category/us/immigration</td>
+      <td>At the outset, let me set the record straight:...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T16:59:55-04:00</td>
+      <td>2017-08-02T12:40:00-04:00</td>
+      <td>Texas Attorney General Paxton: We must phase o...</td>
+      <td>/opinion/texas-attorney-general-paxton-we-must...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Todd Starnes</td>
+      <td>/category/columns/todds-american-dispatch</td>
+      <td>For the past two years, the Young Americans fo...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T16:59:43-04:00</td>
+      <td>2017-08-02T18:03:00-04:00</td>
+      <td>University moves 9/11 flag display to avoid tr...</td>
+      <td>/opinion/university-moves-9-11-flag-display-to...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>National Anthem Protests</td>
+      <td>/category/news-events/national-anthem-protests</td>
+      <td>This weekend, the more than 100 NFL players wh...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2017-09-26T16:58:45-04:00</td>
+      <td>2017-09-26T15:42:00-04:00</td>
+      <td>Marc Thiessen: Want to protest Trump? Disrespe...</td>
+      <td>/opinion/marc-thiessen-want-to-protest-trump-d...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>5,000 brings us back to 2017.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_off</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=30&#39;</span><span class="p">,</span><span class="s1">&#39;offset=10000&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url_off</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 0
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>But 10,000 fails. 😞.</p>
+<p>After attempting multiple values, it appears something around 9,950 is the maximum offset that will return results, which is approximately three years of data. This limit could be hard coded into the API or this could simply be all the data that is available on the website.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_off</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=30&#39;</span><span class="p">,</span><span class="s1">&#39;offset=9950&#39;</span><span class="p">)</span>
+
+<span class="n">fox_df</span><span class="p">(</span><span class="n">url_off</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return a dataframe of length 11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Campaigning</td>
+      <td>/category/politics/elections/campaigning</td>
+      <td>After watching Donald Trump in a town hall set...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-03T23:41:09-04:00</td>
+      <td>2016-04-04T00:00:00-04:00</td>
+      <td>After a terrible week Trump sticks with style ...</td>
+      <td>/opinion/after-a-terrible-week-trump-sticks-wi...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MILITARY</td>
+      <td>/category/us/military</td>
+      <td>Since the Vietnam War, the military has mainta...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-03T21:12:03-04:00</td>
+      <td>2016-04-04T00:00:00-04:00</td>
+      <td>Latest attack on POW/MIA religious symbol is c...</td>
+      <td>/opinion/latest-attack-on-pow-mia-religious-sy...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>It’s great that some NBA players have picked u...</td>
+      <td></td>
+      <td>https://a57.foxnews.com///static.foxnews.com/s...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T13:34:37-04:00</td>
+      <td>2011-10-18T13:37:00-04:00</td>
+      <td>Restaurants? Internships? Selling Furniture? L...</td>
+      <td>/opinion/restaurants-internships-selling-furni...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Supreme Court</td>
+      <td>/category/politics/judiciary/supreme-court</td>
+      <td>Democratic presidential candidate Hillary Clin...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T13:12:37-04:00</td>
+      <td>2016-04-01T07:53:00-04:00</td>
+      <td>Hypocrisy, thy name is Hillary Clinton</td>
+      <td>/opinion/hypocrisy-thy-name-is-hillary-clinton</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Youngsters at the Volunteer State’s flagship u...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T10:32:04-04:00</td>
+      <td>2016-04-01T09:45:00-04:00</td>
+      <td>Tennessee lawmakers fume over state university...</td>
+      <td>/opinion/tennessee-lawmakers-fume-over-state-u...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>POLITICS</td>
+      <td>/category/politics</td>
+      <td>President Obama, our openness to refugees is n...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T09:36:30-04:00</td>
+      <td>2016-04-01T06:00:00-04:00</td>
+      <td>Rep. Blackburn: An open door for Syrian refuge...</td>
+      <td>/opinion/rep-blackburn-an-open-door-for-syrian...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>TERRORISM</td>
+      <td>/category/world/terrorism</td>
+      <td>Imagine more of the African continent engulfed...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/a57.foxnews.com/media2...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T06:00:33-04:00</td>
+      <td>2016-04-01T06:00:00-04:00</td>
+      <td>Islamist violence threatens Judeo-Christian ci...</td>
+      <td>/opinion/islamist-violence-threatens-judeo-chr...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Iran</td>
+      <td>/category/world/conflicts/iran</td>
+      <td>Iran tested two ballistic missiles last fall a...</td>
+      <td></td>
+      <td>https://a57.foxnews.com///static.foxnews.com/s...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T05:30:01-04:00</td>
+      <td>2016-04-01T05:00:00-04:00</td>
+      <td>The real meaning of Iranian Supreme Leader Kha...</td>
+      <td>/opinion/the-real-meaning-of-iranian-supreme-l...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Zika</td>
+      <td>/category/health/infectious-disease/zika</td>
+      <td>To protect Americans, all levels of government...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-04-01T05:00:19-04:00</td>
+      <td>2016-04-01T05:00:00-04:00</td>
+      <td>CDC Chief: Zika is coming. To fully protect Am...</td>
+      <td>/opinion/cdc-chief-zika-is-coming-to-fully-pro...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>At 31, I closed my bedroom door when it came t...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-03-31T16:18:31-04:00</td>
+      <td>2016-03-31T16:00:00-04:00</td>
+      <td>Why I'm proud to be a prude</td>
+      <td>/opinion/why-im-proud-to-be-a-prude</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Campaigning</td>
+      <td>/category/politics/elections/campaigning</td>
+      <td>Donald Trump is the leading candidate for the ...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2016-03-31T15:22:32-04:00</td>
+      <td>2016-03-30T12:24:00-04:00</td>
+      <td>Who influences Donald Trump on foreign affairs...</td>
+      <td>/opinion/who-influences-donald-trump-on-foreig...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The final step in collecting the article metadata via the API is to make all the necessary API calls to gather all the relevant article metadata. I slightly revise the <code class="docutils literal notranslate"><span class="pre">fox_df</span></code> function so that it takes a value of an offset. I hardcoded the URL, fixing the size to 30.  A more robust function would turn the entire set of parameters into a dictionary that was modifiable. I also took out the print statement which would clutter the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fox_df</span><span class="p">(</span><span class="n">offset</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://www.foxnews.com/api/article-search?&#39;</span>
+           <span class="s1">&#39;isCategory=true&amp;isTag=false&amp;isKeyword=false&amp;&#39;</span>
+           <span class="s1">&#39;isFixed=false&amp;isFeedUrl=false&amp;searchSelected=opinion&amp;&#39;</span>
+           <span class="s1">&#39;contentTypes=%7B</span><span class="si">%22i</span><span class="s1">nteractive%22:true,</span><span class="si">%22s</span><span class="s1">lideshow%22:true,%22video%22:false,</span><span class="si">%22a</span><span class="s1">rticle%22:true%7D&amp;&#39;</span>
+           <span class="s1">&#39;size=30&amp;offset=0&#39;</span><span class="p">)</span>
+    
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;offset=0&#39;</span><span class="p">,</span> <span class="s1">&#39;offset=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">offset</span><span class="p">)</span>
+    
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, I loop over the function. I create an empty dataframe and then append the results after each loop. I pause three seconds each pass in order to not access the web server too many times. The first time I ran this, I only retrieved a few pages of results to make sure everything worked.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># for pausing</span>
+
+<span class="c1"># create empty dataframe to store results</span>
+<span class="n">fox_opinion_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span> 
+
+<span class="c1"># Create a loop that counts up by 30.</span>
+<span class="k">for</span> <span class="n">offset</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">30</span><span class="p">):</span>
+    <span class="n">new_df</span> <span class="o">=</span> <span class="n">fox_df</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+    
+    <span class="c1"># Add the new results to the existing database</span>
+    <span class="n">fox_opinion_df</span> <span class="o">=</span> <span class="n">fox_opinion_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_df</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Pause for three seconds to be polite to the web server</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fox_opinion_df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category.name</th>
+      <th>category.url</th>
+      <th>description</th>
+      <th>duration</th>
+      <th>imageUrl</th>
+      <th>isBreaking</th>
+      <th>isLive</th>
+      <th>lastPublishedDate</th>
+      <th>publicationDate</th>
+      <th>title</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1015</th>
+      <td>Tucker Carlson Tonight</td>
+      <td>/category/shows/tucker-carlson-tonight</td>
+      <td>Jerome Corsi though has not backed down.</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T08:08:54-05:00</td>
+      <td>2018-12-04T08:08:54-05:00</td>
+      <td>Tucker Carlson: The Mueller probe continues to...</td>
+      <td>/opinion/tucker-carlson-the-mueller-probe-cont...</td>
+    </tr>
+    <tr>
+      <th>1016</th>
+      <td>Sean Hannity's Monologue</td>
+      <td>/category/shows/hannity/transcript/hannitys-mo...</td>
+      <td>George H. W. Bush never forgot the brave men w...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T07:41:41-05:00</td>
+      <td>2018-12-04T07:41:41-05:00</td>
+      <td>Sean Hannity: George Bush was a patriot and ne...</td>
+      <td>/opinion/sean-hannity-george-bush-was-a-patrio...</td>
+    </tr>
+    <tr>
+      <th>1017</th>
+      <td>Laura Ingraham's Monologue</td>
+      <td>/category/shows/ingraham-angle/transcript/laur...</td>
+      <td>At a time like this when a father, a grandfath...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T07:10:28-05:00</td>
+      <td>2018-12-04T07:10:28-05:00</td>
+      <td>Laura Ingraham: George Bush would have wanted ...</td>
+      <td>/opinion/laura-ingraham-george-bush-would-have...</td>
+    </tr>
+    <tr>
+      <th>1018</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>Christmas inspires these moments to cherish, a...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/static.foxnews.com/fox...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T04:00:57-05:00</td>
+      <td>2018-12-04T04:00:57-05:00</td>
+      <td>Sam Sorbo: The greatest Christmas gift I can t...</td>
+      <td>/opinion/sam-sorbo-the-greatest-christmas-gift...</td>
+    </tr>
+    <tr>
+      <th>1019</th>
+      <td>OPINION</td>
+      <td>/category/opinion</td>
+      <td>It would be a Christmas miracle if Melania Tru...</td>
+      <td></td>
+      <td>https://a57.foxnews.com/media2.foxnews.com/Bri...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2018-12-04T04:00:22-05:00</td>
+      <td>2018-12-04T04:00:22-05:00</td>
+      <td>Lauren Appell: Media scrooges need to lighten ...</td>
+      <td>/opinion/media-scrooges-need-to-lighten-up-on-...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The dataframe can be stored as either as CSV file or JSON. CSV is best if you want to use it elsewhere, while a JSON usually is more robust to handling text strings which somtimes trip up CSV readers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fox_opinion_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;foxnews_opinion.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fox_opinion_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s1">&#39;foxnews_opinion.json&#39;</span><span class="p">,</span> <span class="n">orient</span> <span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Things aren’t always this easy, but when you stumble across an undocumented API you can quickly put together a dataset.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./web"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="newspapers.html" title="previous page">Downloading newspaper articles</a>
+    <a class='right-next' id="next-link" href="YouTube.html" title="next page">Youtube</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Neal Caren<br/>
+        
+          <div class="extra_footer">
+            University of North Carolina, Chapel Hill
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

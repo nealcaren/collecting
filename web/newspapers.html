@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Downloading newspaper articles &#8212; Data Collection in Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Undocument APIs" href="undocumented.html" />
+    <link rel="prev" title="Data from the Web" href="../web.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/networks.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Collection in Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Data Collection in Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../starting.html">
+   Getting Started with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/setup.html">
+     Setting up Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/using-jupyter-notebooks.html">
+     Using Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/python.html">
+     Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/pandas.html">
+     Data management in pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../files.html">
+   Data from the Files
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../files/from-PDF-to-txt-using-OCR.html">
+     Install the required packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../web.html">
+   Data from the Web
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Downloading newspaper articles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="undocumented.html">
+     Undocument APIs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="YouTube.html">
+     Youtube
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/web/newspapers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nealcaren/recipes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nealcaren/recipes/master?urlpath=tree/web/newspapers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/nealcaren/recipes/blob/master/web/newspapers.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="downloading-newspaper-articles">
+<h1>Downloading newspaper articles<a class="headerlink" href="#downloading-newspaper-articles" title="Permalink to this headline">¶</a></h1>
+<p>If you are interested in scrapping newspaper data, you might not need to build your own scraper. The <a class="reference external" href="https://newspaper.readthedocs.io/en/latest/">Newspaper</a> library is a powerful tool for scraping the text and relevant meta data, such as author and title from newspaper articles and other online media sources.</p>
+<p>Newspaper works by looking for commonly occurring  tags, such as “byline” or “author”, to identify the relevant components of a newspaper article, including title, author, publication date, and text. Even when it doesn’t work completely, by for example, extracting everything but the author, it can greatly reduce the amount of time you spend inspecting the parsing the HTML by hand.</p>
+<p>If this is your first time running this notebook, you may need to install Newspaper:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install newspaper3k
+</pre></div>
+</div>
+<p>Newspaper has the ability to scan the front page of a media source and identify all the articles on the page using the <code class="docutils literal notranslate"><span class="pre">build</span></code> method. A more common scenario for researchers is to have a list of articles URLs, created either from the paper’s API or scrapped using the paper’s search function. In this case, Newspaper’s <code class="docutils literal notranslate"><span class="pre">Article</span></code> method is used to download, parse and extract the relevant information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install newspaper3k
+<span class="kn">from</span> <span class="nn">newspaper</span> <span class="kn">import</span> <span class="n">Article</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting newspaper3k
+  Using cached newspaper3k-0.2.8-py3-none-any.whl (211 kB)
+Collecting feedfinder2&gt;=0.0.4
+  Using cached feedfinder2-0.0.4.tar.gz (3.3 kB)
+Requirement already satisfied: cssselect&gt;=0.9.2 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from newspaper3k) (1.1.0)
+Requirement already satisfied: requests&gt;=2.10.0 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from newspaper3k) (2.23.0)
+Collecting PyYAML&gt;=3.11
+  Downloading PyYAML-5.3.1.tar.gz (269 kB)
+     |████████████████████████████████| 269 kB 907 kB/s eta 0:00:01
+?25hRequirement already satisfied: beautifulsoup4&gt;=4.4.1 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from newspaper3k) (4.9.0)
+Collecting tinysegmenter==0.3
+  Using cached tinysegmenter-0.3.tar.gz (16 kB)
+Collecting tldextract&gt;=2.0.1
+  Using cached tldextract-2.2.2-py2.py3-none-any.whl (48 kB)
+Collecting jieba3k&gt;=0.35.1
+  Using cached jieba3k-0.35.1.zip (7.4 MB)
+Collecting nltk&gt;=3.2.1
+  Downloading nltk-3.5.zip (1.4 MB)
+     |████████████████████████████████| 1.4 MB 199 kB/s eta 0:00:01
+?25hCollecting feedparser&gt;=5.2.1
+  Using cached feedparser-5.2.1.tar.bz2 (192 kB)
+Requirement already satisfied: python-dateutil&gt;=2.5.3 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from newspaper3k) (2.8.1)
+Requirement already satisfied: lxml&gt;=3.6.0 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from newspaper3k) (4.5.0)
+Requirement already satisfied: Pillow&gt;=3.3.0 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from newspaper3k) (7.1.2)
+Requirement already satisfied: six in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from feedfinder2&gt;=0.0.4-&gt;newspaper3k) (1.14.0)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from requests&gt;=2.10.0-&gt;newspaper3k) (3.0.4)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from requests&gt;=2.10.0-&gt;newspaper3k) (2.9)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from requests&gt;=2.10.0-&gt;newspaper3k) (1.25.9)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from requests&gt;=2.10.0-&gt;newspaper3k) (2020.4.5.1)
+Requirement already satisfied: soupsieve&gt;1.2 in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from beautifulsoup4&gt;=4.4.1-&gt;newspaper3k) (1.9.4)
+Requirement already satisfied: setuptools in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from tldextract&gt;=2.0.1-&gt;newspaper3k) (46.3.1.post20200515)
+Collecting requests-file&gt;=1.4
+  Using cached requests_file-1.5.1-py2.py3-none-any.whl (3.7 kB)
+Collecting click
+  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+     |████████████████████████████████| 82 kB 969 kB/s eta 0:00:011
+?25hCollecting joblib
+  Downloading joblib-0.15.0-py3-none-any.whl (298 kB)
+     |████████████████████████████████| 298 kB 1.9 MB/s eta 0:00:01
+?25hCollecting regex
+  Downloading regex-2020.5.14.tar.gz (696 kB)
+     |████████████████████████████████| 696 kB 1.3 MB/s eta 0:00:01
+?25hRequirement already satisfied: tqdm in /Users/nealcaren/opt/anaconda3/envs/tmwp/lib/python3.8/site-packages (from nltk&gt;=3.2.1-&gt;newspaper3k) (4.46.0)
+Building wheels for collected packages: feedfinder2, PyYAML, tinysegmenter, jieba3k, nltk, feedparser, regex
+  Building wheel for feedfinder2 (setup.py) ... ?25ldone
+?25h  Created wheel for feedfinder2: filename=feedfinder2-0.0.4-py3-none-any.whl size=3355 sha256=3fe7b6012928f06613941412fa67b9d3c7b7c3459519021bb7e4dd41906b6497
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/b6/09/68/a9f15498ac02c23dde29f18745bc6a6f574ba4ab41861a3575
+  Building wheel for PyYAML (setup.py) ... ?25ldone
+?25h  Created wheel for PyYAML: filename=PyYAML-5.3.1-cp38-cp38-macosx_10_9_x86_64.whl size=44624 sha256=38796b68f0e6f8de36dda69f91feaf8f8283bfa021703b576ea6203c9aee9106
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/13/90/db/290ab3a34f2ef0b5a0f89235dc2d40fea83e77de84ed2dc05c
+  Building wheel for tinysegmenter (setup.py) ... ?25ldone
+?25h  Created wheel for tinysegmenter: filename=tinysegmenter-0.3-py3-none-any.whl size=13538 sha256=9385d60b69785a0c2d262a00073d4095c8256fa871581eb93b32ee06a334a55a
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/99/74/83/8fac1c8d9c648cfabebbbffe97a889f6624817f3aa0bbe6c09
+  Building wheel for jieba3k (setup.py) ... ?25ldone
+?25h  Created wheel for jieba3k: filename=jieba3k-0.35.1-py3-none-any.whl size=7398406 sha256=507246587ad3ec9bd4688f83408d93754573f80e24bc338c8754ccdb2a1ec402
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/1f/7e/0c/54f3b0f5164278677899f2db08f2b07943ce2d024a3c862afb
+  Building wheel for nltk (setup.py) ... ?25ldone
+?25h  Created wheel for nltk: filename=nltk-3.5-py3-none-any.whl size=1434676 sha256=8a8ae07baec1f52f96ade8acde1746235c444646e709f7bdff16df9eaf1fcb07
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/ff/d5/7b/f1fb4e1e1603b2f01c2424dd60fbcc50c12ef918bafc44b155
+  Building wheel for feedparser (setup.py) ... ?25ldone
+?25h  Created wheel for feedparser: filename=feedparser-5.2.1-py3-none-any.whl size=44939 sha256=fc7eca483e4fa3b209284828af29073ad6bc0eb32125f2d522f66a9c4201f8da
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/e8/a3/00/a2395422ba648d592d20ba9b94e7bfcc36c8cf3b5ebdd472fb
+  Building wheel for regex (setup.py) ... ?25ldone
+?25h  Created wheel for regex: filename=regex-2020.5.14-cp38-cp38-macosx_10_9_x86_64.whl size=287485 sha256=2b7658ba30eea3ead814eaab2aaa4625b8acfc6af399cd3fbe0848220791e704
+  Stored in directory: /Users/nealcaren/Library/Caches/pip/wheels/11/17/00/2a4439eeb3a42a66b3649af2ef52ead483766361dc65b31498
+Successfully built feedfinder2 PyYAML tinysegmenter jieba3k nltk feedparser regex
+Installing collected packages: feedfinder2, PyYAML, tinysegmenter, requests-file, tldextract, jieba3k, click, joblib, regex, nltk, feedparser, newspaper3k
+Successfully installed PyYAML-5.3.1 click-7.1.2 feedfinder2-0.0.4 feedparser-5.2.1 jieba3k-0.35.1 joblib-0.15.0 newspaper3k-0.2.8 nltk-3.5 regex-2020.5.14 requests-file-1.5.1 tinysegmenter-0.3 tldextract-2.2.2
+</pre></div>
+</div>
+</div>
+</div>
+<p>On February 25th, 2019, the Associated Press published, “<a class="reference external" href="https://apnews.com/af878855969c4b48bc8b083b91c67018">Worker visas in doubt as Trump immigration crackdown widens
+</a>“.</p>
+<p><img alt="visas" src="web/images%5Cvisas.png" /></p>
+<p>I save the URL as a variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://apnews.com/af878855969c4b48bc8b083b91c67018&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Article is a three step process. First, create an Article object, which I’ll call article. The page then needs to be download and parsed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">article</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+<span class="n">article</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The article object stores the results of the parse as different properties of the object. The most relevant of these are title, authors, publish_date and text. I check these four to make sure that page was able to be parsed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Worker visas in doubt as Trump immigration crackdown widens&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="o">.</span><span class="n">authors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Matt Sedensky&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Authors returns a list. In this case, it only has one item.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article</span><span class="o">.</span><span class="n">publish_date</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2019, 2, 25, 21, 13, 33, tzinfo=tzutc())
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, publish_date returns the publication date and time converted into a Python datetime object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">article</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In this Monday, Feb. 4, 2019, photo, Leo Wang packs a suitcase at his home in San Jose, Calif. Wang has found himself trapped in an obstacle course regarding H-1B work visas for foreigners. His visa denied and his days in the United States numbered, Wang is looking for work outside the country. “I still believe in the American dream,” he says. “It’s just that I personally have to pursue it somewhere else.” (AP Photo/Ben Margot)
+
+In this Monday, Feb. 4, 2019, photo, Leo Wang packs a suitcase at his home in San Jose, Calif. Wang has found himself trapped in an obstacle course regarding H-1B work visas for foreigners. His visa denied and his days in the United States numbered, Wang is looking for work outside the country. “I still believe in the American dream,” he says. “It’s just that I personally have to pursue it somewhere else.” (AP Photo/Ben Margot)
+
+NEW YORK (AP) — Immigrants with specialized skills are being denied work visas or seeing applications get caught up in lengthy bureaucratic tangles under federal changes that some consider a contradiction to President Donald Trump’s promise of a continued pathway to the U.S. for the most talented foreigners.
+
+Getting what’s known as an H-1B visa has never been a sure thing — the number issued annually is capped at 85,000 and applicants need to enter a lottery to even be considered. But some immigration attorneys, as well as those who hire such workers, say they’ve seen unprecedented disruptions in the approval process since Trump took office in 2017.
+
+“You see all these arguments that we want the best and the brightest coming here,” said John Goslow, an immigration attorney in Ann Arbor, Michigan. “Yet we’re seeing a full-frontal assault on just all aspects of immigration.”
+
+For American businesses, there is a bottom-line impact.
+
+Link Wilson, an architect who co-founded a firm in Bloomington, Minnesota, said finding enough qualified workers within the U.S. has been a problem for years. That’s due to a shortage of architects, but also because his firm needs people with experience developing senior housing. He said employers who turn to international applicants do so as a last resort, putting up with legal fees and ever-expanding visa approval times because they have no other choice.
+
+“We’re just at the point where there’s no one else to hire,” said Wilson, who hired an architect under an H-1B visa last year after enduring a long wait. He estimates his firm turned away about $1 million in projects in 2018 because it didn’t have enough staff to handle them.
+
+Three months after taking office, Trump issued his “Buy American and Hire American” executive order , directing Cabinet officials to suggest reforms to ensure that H-1B visas are awarded to the “most-skilled or highest-paid” applicants to help promote the hiring of Americans for jobs that might otherwise go to immigrants.
+
+Subsequent memos have allowed for greater discretion in denying applications without first requesting additional information from an applicant, tossed the deference given to people seeking to renew their H-1Bs, and raised concern that the government would revoke work permits for the spouses of H-1B holders. One order restricted companies’ ability to use H-1B workers off-site at a customer’s place of business, while another temporarily rescinded the option of paying for faster application processing.
+
+Attorneys who handle these applications say one of the biggest shifts is an increase in “requests for evidence,” or RFEs, from U.S. Citizenship and Immigration Services. An RFE can delay a visa for months or longer as applicants and employers are forced to submit additional documentation over things such as the applicability of a college degree to a prospective job or whether the wage being offered is appropriate. If the responses are unsatisfactory, a visa may be denied.
+
+“They’re just blocking the avenues so that employers will get frustrated and they won’t employ foreign nationals,” said Dakshini Sen, an immigration lawyer in Houston whose caseload is mostly H-1B applications. “We have to write and write and write and explain and explain and explain each and every point.”
+
+USCIS data released on Friday shows an increase in the number of completed H-1B applications receiving an RFE, from about 21 percent in the 2016 fiscal year to 38 percent last fiscal year. The number continued to rise in the first quarter of this fiscal year, to 60 percent.
+
+A growing number of applications with such requests were ultimately denied, while the approval rate among all applicants has fallen. Approvals also dipped in two other visa programs for foreign workers, including one for individuals with extraordinary abilities in areas such as science, sports and the arts.
+
+Jessica Collins, a spokeswoman for USCIS, linked the changes to the president’s executive order, saying the goal was to reduce “frivolous” petitions and that “it is incumbent upon the petitioner, not the government” to prove eligibility.
+
+Some employers note traditional three-year renewable terms of H-1Bs have also been changing; one lawsuit by an organization representing information technology companies claims some visas were valid for only a few days or had expired before they were even received.
+
+Meantime, a vague entry published in the Federal Register last fall advised that the Department of Homeland Security would propose additional revisions to focus on attracting “the best and the brightest” and to “ensure employers pay appropriate wages” to H-1B visa holders, which has raised alarms that the administration will move to narrow the definition of who qualifies.
+
+Caught in the crosshairs of all this are workers like Leo Wang.
+
+Wang, 32, spent six years after college in his native China learning all he could about data and analytics. He got into the University of Southern California, interned at a major venture capital firm and wasted no time after finishing his master’s before starting on another degree. He couch-surfed, passed up an enticing foreign job offer and amassed educational debt all in pursuit of the dream that ultimately came true: A six-figure Silicon Valley job.
+
+As long as it took Wang to achieve his goal, it disappeared in record time.
+
+Wang was working at Seagate Technology under an immigration provision known as Optional Practical Training, which gives those on student visas permission to work. But that expired last year, and because his H-1B application was in flux, he was forced to take a leave from Seagate and withdraw from the master’s program he was pursuing at Berkeley. He says he and his company dutifully responded to an RFE, compiling examples of his work at Seagate. But on Jan. 11, Wang got a final answer: He was denied an H-1B.
+
+“All I wanted was to be able to see my American dream,” he said.
+
+Sandra Feist, an immigration attorney in Minneapolis, said talented foreigners discouraged by the visa process are beginning to look at opportunities in other countries, and she questions what that means for America’s future, especially if top-tier researchers who could contribute to science and medicine are turned away.
+
+One of her clients, a computer systems analyst from India with a master’s degree from a U.S. college, filed his petition for an H-1B in April 2017 with 101 pages of documentation. He received an RFE, and a 176-page response was filed, with additional paperwork attempting to prove just how complicated the position was. He was denied. Feist filed a 282-page appeal, requesting that the file be reopened. Though the appeal was approved, there was a second RFE, which Feist said raises the same issues she already responded to.
+
+With a U.S. work visa unlikely, that client is applying for permanent residency in Canada with his wife and U.S. citizen child.
+
+CEOs for companies including Apple, Ford and Coca-Cola penned a letter to Homeland Security Secretary Kirstjen Nielsen in August, saying immigration policy changes were undermining economic growth. “At a time when the number of job vacancies are reaching historic highs due to labor shortages,” they said, “now is not the time to restrict access to talent.”
+
+A provision for immigration based on skills, education and employer needs dates back to the Immigration and Nationality Act of 1952, and the visa now known as the H-1B has until recently enjoyed wide support among politicians on both the left and the right. A Pew Research Center survey last year found broad approval for high-skilled immigrants among the public, as well, with support at 83 percent among Democrats polled and 73 percent of Republicans.
+
+Trump has vacillated on the issue. During a March 2016 presidential debate, then-candidate Trump was asked about his opposition to visas for skilled workers, to which he said “I’m changing” and that he saw such policies as a way to keep top international students in the U.S. “We absolutely have to be able to keep the brain power in this country,” he said.
+
+His campaign followed that with a statement saying: “The H-1B program is neither high-skilled nor immigration: these are temporary foreign workers, imported from abroad, for the explicit purpose of substituting for American workers at lower pay.”
+
+Last month, Trump again reverted to a more conciliatory note, tweeting that H1-B holders “can rest assured that changes are soon coming which will bring both simplicity and certainty to your stay, including a potential path to citizenship.”
+
+Back in China now, Wang isn’t sure what to make of Trump’s words. He’s talked to a friend from Seagate, now at a Swedish firm, about openings there, and a former boss in Singapore has some prospects for him as well.
+
+“I still believe in the American dream,” he says. “It’s just that I personally have to pursue it somewhere else.”
+
+___
+
+Sedensky can be reached at msedensky@ap.org and https://twitter.com/sedensky
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, the full-text of the article has been returned. It also returned the image caption (at the top) and author contact information (at the bottom). These might need to be trimmed later on.</p>
+<p>Anytime I’m using Newspaper, I want to store data on many different newspaper articles. To automate this process, I created a function that takes a URL and returns a dictionary containing the extracted meta data along with the html code, in case I want to extract additional information later on by hand. It also good to always have the data you are collecting in the original format, rather than just the parsed information. Note that one limitation of Newspaper is that it does not work on HTML files you have downloaded elsewhere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_article_info</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Download and parse a newspaper url.&quot;&quot;&quot;</span>
+    <span class="n">article</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">article</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+    <span class="n">article</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+    <span class="n">article_details</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+        <span class="s2">&quot;webUrl&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+        <span class="s2">&quot;authors&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">authors</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">html</span><span class="p">,</span>
+        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">publish_date</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">article</span><span class="o">.</span><span class="n">meta_description</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">article_details</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I confirm that it works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">get_article_info</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Worker visas in doubt as Trump immigration crackdown widens
+</pre></div>
+</div>
+</div>
+</div>
+<p>One of the many uses of the pandas library is to convert and store different types of data. In this case, pandas can be used to convert the dictionary returned by <code class="docutils literal notranslate"><span class="pre">get_article_info</span></code> into a dataframe, which can be subsequntly stored as a JSON file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>authors</th>
+      <th>date</th>
+      <th>description</th>
+      <th>html</th>
+      <th>text</th>
+      <th>title</th>
+      <th>webUrl</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matt Sedensky</td>
+      <td>2019-02-25 21:13:33+00:00</td>
+      <td>NEW YORK (AP) — Immigrants with specialized sk...</td>
+      <td>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset="UTF-...</td>
+      <td>In this Monday, Feb. 4, 2019, photo, Leo Wang ...</td>
+      <td>Worker visas in doubt as Trump immigration cra...</td>
+      <td>https://apnews.com/af878855969c4b48bc8b083b91c...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;ap_articles.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>While this might seem like overkill for one article, it scales up quite nicely if you have a longer list of URLs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://apnews.com/43bcb090972f4cc48999e8cc32de38a3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://apnews.com/1cc6b8d081154945addfd71fadb88561&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://apnews.com/7820c2fdb5b14ef9baef8b1e5cad3c0b&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">article_data</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Blank list to store results</span>
+
+<span class="c1"># Loop over each URL</span>
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">get_article_info</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">article_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># convert list of dictionaries to dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">article_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>text</th>
+      <th>webUrl</th>
+      <th>authors</th>
+      <th>html</th>
+      <th>date</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Judge considers expanding child separation case</td>
+      <td>FILE - This Aug. 9, 2018, file photo, provided...</td>
+      <td>https://apnews.com/43bcb090972f4cc48999e8cc32d...</td>
+      <td>[Nomaan Merchant, Julie Watson]</td>
+      <td>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset="UTF-...</td>
+      <td>2019-02-22 02:16:01+00:00</td>
+      <td>SAN DIEGO (AP) — Months after the Trump admini...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Trump says he has ‘absolute right’ to declare ...</td>
+      <td>FILE - In this March 13, 2018, file photo, Pre...</td>
+      <td>https://apnews.com/1cc6b8d081154945addfd71fadb...</td>
+      <td>[Catherine Lucey]</td>
+      <td>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset="UTF-...</td>
+      <td>2019-02-20 02:24:06+00:00</td>
+      <td>WASHINGTON (AP) — President Donald Trump decla...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lawmakers seek probe of ICE force-feeding of i...</td>
+      <td>FILE - In this June 2018 file photo, protester...</td>
+      <td>https://apnews.com/7820c2fdb5b14ef9baef8b1e5ca...</td>
+      <td>[Garance Burke, Martha Mendoza]</td>
+      <td>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset="UTF-...</td>
+      <td>2019-02-20 00:05:30+00:00</td>
+      <td>Nearly 50 Democratic lawmakers called for a wa...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>I have some suggests on best practices for <a class="reference external" href="https://github.com/nealcaren/Lessons/blob/master/Notebooks/Downloading.ipynb">downloading a lot of files</a>, which are relevant here, since you want to avoid downloading each article more than once.</p>
+<p>I have found that the most common issue with newspaper is that it missing the author information. A second issue is that it sometimes only retrieves part of the text with articles ending, “Click here to continue.” In either of those cases, I usually start by using Newspaper to download and parse all the information and supplement the columns it creates with additional ones based on parsing the article text store in the HTML column.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./web"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../web.html" title="previous page">Data from the Web</a>
+    <a class='right-next' id="next-link" href="undocumented.html" title="next page">Undocument APIs</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Neal Caren<br/>
+        
+          <div class="extra_footer">
+            University of North Carolina, Chapel Hill
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
