@@ -1,0 +1,1451 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube &#8212; Data Collection in Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Undocument APIs" href="undocumented.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/networks.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Collection in Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Data Collection in Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../starting.html">
+   Getting Started with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/setup.html">
+     Setting up Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/using-jupyter-notebooks.html">
+     Using Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/python.html">
+     Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/pandas.html">
+     Data management in pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../files.html">
+   Data from the Files
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../files/from-PDF-to-txt-using-OCR.html">
+     Install the required packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../web.html">
+   Data from the Web
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="newspapers.html">
+     Downloading newspaper articles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="undocumented.html">
+     Undocument APIs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Youtube
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/web/YouTube.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nealcaren/recipes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nealcaren/recipes/master?urlpath=tree/web/YouTube.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/nealcaren/recipes/blob/master/web/YouTube.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-metadata">
+   Video metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-the-video">
+   Downloading the video
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#captions">
+   Captions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playlists">
+   Playlists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-data">
+   Other data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="youtube">
+<h1>Youtube<a class="headerlink" href="#youtube" title="Permalink to this headline">¶</a></h1>
+<p>This notebook highlights the basics of gathering data about YouTube videos, including collecting details about the video, such as title, description, and view count;  extracting the video transcription or captions; and storing the video file locally. It also covers working with playlists.</p>
+<p>The most versatile library for working with YouTube videos in Python in <a class="reference external" href="https://python-pytube.readthedocs.io/en/latest/">pytube</a>. You can install it in terminal with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytube</span></code> or, from within a Jupyter Notebook, <code class="docutils literal notranslate"><span class="pre">%pip</span> <span class="pre">install</span> <span class="pre">pytube</span></code>.</p>
+<p>This overview is aimed at those who will be collecting data from YouTube for social science research. Review the [documentation] for pytube’s full capabilities and greater depth on each topic.</p>
+<div class="section" id="video-metadata">
+<h2>Video metadata<a class="headerlink" href="#video-metadata" title="Permalink to this headline">¶</a></h2>
+<p>pytube can access information about a specific video, such as title, description, and view count. After importing, you provide the function with the the full url of the video. In this case, I’ll be looking at the <a class="reference external" href="https://www.youtube.com/watch?v=YnCJU6PaCio">first video</a> in the Crash Course Sociology series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytube</span> <span class="kn">import</span> <span class="n">YouTube</span>
+
+<span class="n">yt</span> <span class="o">=</span> <span class="n">YouTube</span><span class="p">(</span><span class="s1">&#39;https://www.youtube.com/watch?v=YnCJU6PaCio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The YouTube object <code class="docutils literal notranslate"><span class="pre">yt</span></code> has all the metadata stored as methods, which can be accessed by name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yt</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;What Is Sociology?: Crash Course Sociology #1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most likely, you’ll want to extract the information from the video for later analysis. A convenient way to store data on a specific video is as a pandas series, which outputs fairly nicely and can be aggregated into pandas dataframes for analysis in Python or export to other file formats. In my <code class="docutils literal notranslate"><span class="pre">extract_meta</span></code> function, I pull out the most relevant metadata for analysis. I also add the current time since the data, particularly the view count, changes over time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span> <span class="nf">extract_meta</span><span class="p">(</span><span class="n">yt</span><span class="p">):</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;author&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;length&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;publish_date&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;keywords&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;watch_url&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;thumbnail_url&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;views&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">yt</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">}</span>
+    <span class="n">m</span><span class="p">[</span><span class="s1">&#39;Download Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before printing the video’s information, I expand the pandas’ column width display to present more information without truncation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_colwidth&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+
+<span class="n">extract_meta</span><span class="p">(</span><span class="n">yt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>author                                                                               CrashCourse
+title                                              What Is Sociology?: Crash Course Sociology #1
+length                                                                                       581
+publish_date                                                                 2017-03-13 00:00:00
+keywords         [John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...
+watch_url                                                https://youtube.com/watch?v=YnCJU6PaCio
+thumbnail_url                               https://i.ytimg.com/vi/YnCJU6PaCio/maxresdefault.jpg
+description      Today we kick off Crash Course Sociology by explaining what exactly sociolog...
+views                                                                                    2242224
+Download Time                                                         2020-11-23 07:44:24.369497
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="downloading-the-video">
+<h2>Downloading the video<a class="headerlink" href="#downloading-the-video" title="Permalink to this headline">¶</a></h2>
+<p>You can also download the video. pytube has many video choices depending on the resolution you want, but the simplest option is to grab the highest quality video.</p>
+<p>Providing a filename and location is optional. By default, the video is stored in the current directory using the video title as the filename. I’m storing it using the YouTube file id (the part after <code class="docutils literal notranslate"><span class="pre">v=</span></code> in the video’s url) in the command below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yt</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">get_highest_resolution</span><span class="p">()</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;YnCJU6PaCio&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/nealcaren/Documents/nlp/YnCJU6PaCio.mp4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This ten-minute video takes up about 42MB on my hard drive and took almost 30 seconds to download. Conveniently the video will not be redownloaded if it already exists where pytube is trying to store it.</p>
+<p>You can confirm that the download worked by playing it in your notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Video</span>
+
+<span class="n">Video</span><span class="p">(</span><span class="s1">&#39;YnCJU6PaCio.mp4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><video src="YnCJU6PaCio.mp4" controls  >
+      Your browser does not support the <code>video</code> element.
+    </video></div></div>
+</div>
+</div>
+<div class="section" id="captions">
+<h2>Captions<a class="headerlink" href="#captions" title="Permalink to this headline">¶</a></h2>
+<p>Almost all YouTube videos either have captions provided by the uploader or an automated transcription, usually in several languages. The texts aren’t downloaded automatically. If the video has user-uploaded captions in English, you can use the <code class="docutils literal notranslate"><span class="pre">en</span></code> language code. Altenatively, to access the English transcription, use the <code class="docutils literal notranslate"><span class="pre">a.en</span></code> lanague code. If you are interetested in seeing all the captions availble for a specific video, <code class="docutils literal notranslate"><span class="pre">yt.captions.all()</span></code> will return a list of the languages and codes.</p>
+<p>The captions are provided in an XML file, and pytube has a function for producing a more readable srt version, the common subtitle/caption formatting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">caption</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">captions</span><span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">caption</span><span class="o">.</span><span class="n">generate_srt_captions</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+00:00:00,000 --&gt; 00:00:02,580
+Hello, I’m Nicole Sweeney and I have a question for you:
+
+2
+00:00:02,580 --&gt; 00:00:04,480
+Have you ever wondered how the world works?
+
+3
+00:00:04,480 --&gt; 00:00:08,620
+I’m not talking about atoms and molecules, or wave functions and chemical reactions;
+
+4
+00:00:08,620 --&gt; 00:00:10,240
+I mean the world of people.
+
+5
+00:00:10,240 --&gt; 00:00:13,320
+For example, have you ever wondered who goes to college, and why?
+
+6
+00:00:13,320 --&gt; 00:00:15,400
+What is it that makes people march in the streets?
+
+7
+00:00:15,400 --&gt; 00:00:18,220
+How do you know to raise your hand in math class, but not at the dinner table?
+
+8
+00:00:18,220 --&gt; 00:00:22,900
+Why do some people like Broadway musicals, and some people like hip-hop, and some people like both?
+
+9
+00:00:22,900 --&gt; 00:00:27,320
+Well, we&#39;re gonna find out about all of that stuff and so so much more.
+
+10
+00:00:27,320 --&gt; 00:00:28,840
+Especially, you!
+
+11
+00:00:28,840 --&gt; 00:00:34,120
+You’re going to learn about you, and your place in the world because this is Crash Course Sociology.
+
+12
+00:00:34,120 --&gt; 00:00:44,420
+[Theme Music]
+
+13
+00:00:44,420 --&gt; 00:00:48,760
+Sociology got its start thanks to a French philosopher named Auguste Comte in the 1800s.
+
+14
+00:00:48,760 --&gt; 00:00:54,400
+He wanted there to be a systematic science for studying society, a way to investigate and solve its basic problems.
+
+15
+00:00:54,400 --&gt; 00:00:59,560
+And while sociology today is very different from what Comte imagined, that’s still kind of what it is.
+
+16
+00:00:59,560 --&gt; 00:01:02,900
+Sociology is the scientific study of society and human behavior.
+
+17
+00:01:02,900 --&gt; 00:01:05,380
+But isn&#39;t society this great big thing?
+
+18
+00:01:05,390 --&gt; 00:01:08,730
+I mean, society is whole cities; it&#39;s the economy; it&#39;s politics.
+
+19
+00:01:08,730 --&gt; 00:01:11,580
+And what does all that have to do with raising your hand at the dinner table?
+
+20
+00:01:11,580 --&gt; 00:01:12,920
+A lot, as it turns out.
+
+21
+00:01:12,920 --&gt; 00:01:16,020
+A society is just a group of people who share a culture and a territory.
+
+22
+00:01:16,020 --&gt; 00:01:21,340
+And culture is in everything, from the biggest questions in politics to the smallest interactions between people.
+
+23
+00:01:21,340 --&gt; 00:01:25,900
+So yes, society is big, but it&#39;s also very small.
+
+24
+00:01:25,900 --&gt; 00:01:28,300
+Want to see how? Let’s go to the Thought Bubble!
+
+25
+00:01:28,300 --&gt; 00:01:32,340
+Imagine you&#39;re sitting alone in your room, singing along to your favorite Broadway show at the top of your lungs.
+
+26
+00:01:32,340 --&gt; 00:01:33,860
+Not another person in sight.
+
+27
+00:01:33,860 --&gt; 00:01:35,620
+Society isn’t anywhere to be found.
+
+28
+00:01:35,620 --&gt; 00:01:37,040
+Except that it is.
+
+29
+00:01:37,040 --&gt; 00:01:42,500
+Even if you ignore the house that you’re in – and the parents, siblings, or roommates you&#39;re probably bothering while you’re singing so horribly
+
+30
+00:01:42,500 --&gt; 00:01:45,580
+– there’s still the song that you’re singing, and the music that goes with it.
+
+31
+00:01:45,580 --&gt; 00:01:50,740
+Those things, along with literally every object in the room that you didn&#39;t make yourself, are all products of society.
+
+32
+00:01:50,740 --&gt; 00:01:56,340
+And you might be all alone when you’re belting out Hamilton, but you weren&#39;t alone when a friend first introduced you to the musical, and its songs.
+
+33
+00:01:56,340 --&gt; 00:01:59,880
+And for that matter, your taste in music isn&#39;t purely yours either.
+
+34
+00:01:59,880 --&gt; 00:02:05,400
+What kind of music you like can be influenced by anything from what you were exposed to as a kid, to what your friends like now,
+
+35
+00:02:05,400 --&gt; 00:02:08,160
+to what neighborhood you grew up in, or what schools you went to.
+
+36
+00:02:08,160 --&gt; 00:02:10,980
+Society is tricky; it gets in places you might not expect.
+
+37
+00:02:10,980 --&gt; 00:02:12,140
+Thanks Thought Bubble!
+
+38
+00:02:12,140 --&gt; 00:02:18,080
+So when we say that sociology is the study of society and human behavior, that means that sociology is incredibly broad.
+
+39
+00:02:18,080 --&gt; 00:02:21,390
+In fact, it may be the broadest of what we call the social sciences.
+
+40
+00:02:21,390 --&gt; 00:02:26,600
+The social sciences include disciplines like economics and psychology, and while they all have different focuses and perspectives,
+
+41
+00:02:26,600 --&gt; 00:02:31,580
+they&#39;re all trying to understand the social world objectively, through controlled and repeated observation.
+
+42
+00:02:31,580 --&gt; 00:02:35,420
+So what makes sociology different from any of these other social sciences?
+
+43
+00:02:35,420 --&gt; 00:02:40,160
+Well, like the others, sociology is looking for patterns – recurring characteristics or events.
+
+44
+00:02:40,160 --&gt; 00:02:43,520
+But it looks for all kinds of patterns in all kinds of places.
+
+45
+00:02:43,520 --&gt; 00:02:49,420
+Sociology looks at all aspects of society, and at all scales, from two people talking, to differences between nations.
+
+46
+00:02:49,420 --&gt; 00:02:54,520
+It&#39;s this scope that really sets sociology apart, especially in what’s known as the sociological perspective.
+
+47
+00:02:54,520 --&gt; 00:02:56,960
+And the sociological perspective means two things:
+
+48
+00:02:56,960 --&gt; 00:03:02,780
+1, It means seeing the general in the particular, and 2, it means seeing the strange in the familiar.
+
+49
+00:03:02,780 --&gt; 00:03:09,320
+Seeing the general in the particular is a way of saying that sociology tries to understand social behavior by placing it in its wider social context.
+
+50
+00:03:09,320 --&gt; 00:03:16,200
+To go back to you belting out Broadway tunes in your room, the sociologist who overhears you from the sidewalk might notice not just your choice of what to sing,
+
+51
+00:03:16,200 --&gt; 00:03:21,820
+but how that individual choice may have been influenced by your class, neighborhood, race, gender, or age.
+
+52
+00:03:21,820 --&gt; 00:03:26,580
+To take another example, a sociologist might not care whether or not you, in particular, decide to get married,
+
+53
+00:03:26,580 --&gt; 00:03:30,120
+but she might be interested in learning more about a declining marriage rate in your society –
+
+54
+00:03:30,120 --&gt; 00:03:33,220
+and, say, what&#39;s causing it and whether it’s having any societal impacts.
+
+55
+00:03:33,220 --&gt; 00:03:38,340
+Or maybe she’s more interested in the fact that, in the US, people tend to marry partners of the same class and race as them.
+
+56
+00:03:38,340 --&gt; 00:03:41,020
+In both of these cases – what people sing or whom they marry –
+
+57
+00:03:41,020 --&gt; 00:03:47,080
+the sociologist is interested in a general pattern, a pattern composed of a massive number of particular individual choices.
+
+58
+00:03:47,080 --&gt; 00:03:55,980
+Each individual forms a part of the pattern, and in looking at their individual choices, a sociologist can see elements of the whole pattern, like seeing how a single stone fits into a mosaic.
+
+59
+00:03:55,980 --&gt; 00:04:01,200
+Seeing the strange in the familiar is the second part of the sociological perspective, and it’s maybe more difficult to do.
+
+60
+00:04:01,200 --&gt; 00:04:07,020
+To see the strange in the familiar is to approach the everyday world as though you were seeing it for the first time, as if you were from another world.
+
+61
+00:04:07,020 --&gt; 00:04:10,160
+This is hard, but it&#39;s also incredibly important, and kinda cool.
+
+62
+00:04:10,160 --&gt; 00:04:18,240
+When we asked, at the very beginning, why you raise your hand to ask a question in your math class but not at your dinner table, that’s a very small example of trying to see the strange in the familiar.
+
+63
+00:04:18,240 --&gt; 00:04:22,380
+And this is so hard to do because your own society tends to look normal to you.
+
+64
+00:04:22,380 --&gt; 00:04:23,540
+You take it for granted.
+
+65
+00:04:23,540 --&gt; 00:04:28,240
+As you&#39;re socialized into it, you&#39;re taught a common-sense understanding of society, and that&#39;s not a bad thing!
+
+66
+00:04:28,240 --&gt; 00:04:32,100
+After all, you need a common sense understanding of society in order to live in it, right?
+
+67
+00:04:32,100 --&gt; 00:04:38,000
+You need to know that you shake hands when you meet someone new, and that red means stop, and that you should try to show up on time to things.
+
+68
+00:04:38,000 --&gt; 00:04:47,580
+But if sociology is going to study society, it needs to be able to look at these things as strange and unfamiliar, in order to really understand how they work, and to uncover patterns of behavior in a culture.
+
+69
+00:04:47,580 --&gt; 00:04:52,500
+Common sense has to just get us through the world; but sociology has to know what&#39;s true.
+
+70
+00:04:52,500 --&gt; 00:04:57,800
+And this is important, because a society’s common sense doesn’t consist only of harmless conventions, like shaking hands.
+
+71
+00:04:57,800 --&gt; 00:05:03,300
+Just 200 years ago in the US, it was common sense that only white men were capable of participating in society.
+
+72
+00:05:03,300 --&gt; 00:05:07,240
+It was common sense that slavery was right, and that women shouldn&#39;t be allowed to vote.
+
+73
+00:05:07,240 --&gt; 00:05:11,400
+These things were common sense then in the same way that their opposites are taken for granted now.
+
+74
+00:05:11,400 --&gt; 00:05:15,660
+And the sociological perspective – seeing the general in the particular and strange in the familiar –
+
+75
+00:05:15,660 --&gt; 00:05:20,900
+helps us to understand problems like this, because it helps us see some of the key concepts in the study of society.
+
+76
+00:05:20,900 --&gt; 00:05:25,220
+Among these concepts: social location, marginalization, and power and inequality.
+
+77
+00:05:25,220 --&gt; 00:05:32,560
+If you imagine a map of society, laying out all the different social groups and their relationships to each other, then your social location is your spot on that map.
+
+78
+00:05:32,560 --&gt; 00:05:38,860
+Your social location is a way of classifying yourself, by race, social class, gender, sexual orientation, religion, etc.
+
+79
+00:05:38,860 --&gt; 00:05:43,660
+Understanding social location is important because, just like the sociologist looks for the general in the particular,
+
+80
+00:05:43,660 --&gt; 00:05:46,840
+a person’s life and choices will be influenced by their social location.
+
+81
+00:05:46,840 --&gt; 00:05:51,400
+This is true in a bunch of ways: Most obvious is that your social location can limit your choices.
+
+82
+00:05:51,400 --&gt; 00:05:54,040
+Some groups have legal rights and privileges that others don’t.
+
+83
+00:05:54,040 --&gt; 00:05:59,940
+For instance, until a few years ago, gays and lesbians could not legally marry in the US, so their social location limited their choices.
+
+84
+00:05:59,940 --&gt; 00:06:04,180
+But social location also impacts what you learn, and what you’re taught about society.
+
+85
+00:06:04,180 --&gt; 00:06:11,560
+Whether or not you you go to college, for instance, can be heavily influenced by whether the social class you grew up in tends to see college as a real or valuable possibility.
+
+86
+00:06:11,560 --&gt; 00:06:15,720
+And social location also affects what others have learned, and are taught, about you.
+
+87
+00:06:15,720 --&gt; 00:06:24,420
+Take, for instance, the consistent finding that resumés with names that sound African-American tend to get called for interviews much less often than those with white-sounding names,
+
+88
+00:06:24,420 --&gt; 00:06:27,140
+even though the resumés are otherwise identical.
+
+89
+00:06:27,140 --&gt; 00:06:31,540
+In all these ways, social location can contribute to the marginalization of a social group.
+
+90
+00:06:31,540 --&gt; 00:06:35,900
+If a social group is marginalized, it means that it occupies a position outside the centers of power.
+
+91
+00:06:35,900 --&gt; 00:06:43,120
+Marginalized groups are often racial, ethnic, sexual, or religious minorities, and marginalized groups tend to have a clearer view of how power operates.
+
+92
+00:06:43,120 --&gt; 00:06:49,020
+Heterosexual people, for example, often don’t recognize what a social power it is to have their relationships socially sanctioned,
+
+93
+00:06:49,020 --&gt; 00:06:52,920
+and to be able to display affection in public, in ways that LGBT people often can’t.
+
+94
+00:06:52,920 --&gt; 00:06:58,360
+If marginalization is a matter of being outside the centers of power, that draws our attention to another fact:
+
+95
+00:06:58,360 --&gt; 00:07:02,720
+the fact that there are many different kinds of power, and many different kinds of inequality.
+
+96
+00:07:02,720 --&gt; 00:07:10,520
+There are, of course, the obvious kinds, like economic power and income inequality, or political power and politically-enforced inequalities, like segregation or slavery.
+
+97
+00:07:10,520 --&gt; 00:07:14,360
+But then there are the less obvious kinds, like social or cultural power and inequality.
+
+98
+00:07:14,360 --&gt; 00:07:21,100
+For instance, people who speak with non-standard accents or dialects are often judged harshly for them and can be seen as less intelligent or less mature.
+
+99
+00:07:21,100 --&gt; 00:07:26,140
+Sociology can help us identify and understand all of these things, and maybe even try and fix them.
+
+100
+00:07:26,140 --&gt; 00:07:33,980
+And that’s the point: Sociology is about understanding society, and society&#39;s where we all live, so we&#39;d like it to work as well as possible.
+
+101
+00:07:33,980 --&gt; 00:07:36,980
+Good sociology can help us to create good public policy.
+
+102
+00:07:36,980 --&gt; 00:07:42,460
+And if we think back to Comte, his desire was to do just this, to understand and maybe fix his society&#39;s problems.
+
+103
+00:07:42,460 --&gt; 00:07:47,500
+The late 18th and 19th centuries were a time of massive economic, social, and political upheaval in Europe.
+
+104
+00:07:47,500 --&gt; 00:07:53,020
+This was when industrialization really took off, with factories sprouting up like weeds, connected by larger and larger rail networks.
+
+105
+00:07:53,020 --&gt; 00:07:57,780
+At the same time, the population of Europe exploded, growing faster than at any time in previous history.
+
+106
+00:07:57,780 --&gt; 00:08:00,879
+This was especially true in cities, where industrial production was centralized.
+
+107
+00:08:00,880 --&gt; 00:08:04,780
+And all of these massive economic and social changes came with political shocks, too:
+
+108
+00:08:04,780 --&gt; 00:08:09,060
+This period saw the advent of mass democracy, the fall of kings, and the rise of the nation-state.
+
+109
+00:08:09,060 --&gt; 00:08:13,840
+This, combined with the rise of science as a discipline, was the context in which sociology arose.
+
+110
+00:08:13,840 --&gt; 00:08:19,420
+The first sociologists looked around at their quickly changing societies and were driven to try and scientifically understand them.
+
+111
+00:08:19,420 --&gt; 00:08:24,080
+We said earlier that society wasn&#39;t just big things like revolutions, industrialization, demographics.
+
+112
+00:08:24,080 --&gt; 00:08:25,920
+But it is also these things.
+
+113
+00:08:25,920 --&gt; 00:08:28,780
+It&#39;s both the big and the small, because they’re related.
+
+114
+00:08:28,780 --&gt; 00:08:33,740
+Sociology is about understanding the whole thing, at every level, and how those levels interact.
+
+115
+00:08:33,740 --&gt; 00:08:40,440
+It&#39;s about understanding why you don’t have to raise your hand at the dinner table, and why so-called common sense can lead to massive policy mistakes.
+
+116
+00:08:40,440 --&gt; 00:08:42,780
+Welcome to the science of sociology.
+
+117
+00:08:42,780 --&gt; 00:08:45,900
+Today we talked about what sociology is and what it does.
+
+118
+00:08:45,900 --&gt; 00:08:50,120
+We discussed what it means to be the study of society and why that&#39;s broader than you might think.
+
+119
+00:08:50,120 --&gt; 00:08:55,860
+We introduced the sociological perspective and discussed how sociology differentiates itself from the other social sciences.
+
+120
+00:08:55,860 --&gt; 00:09:02,340
+And finally we discussed what sociology can do, and how that concern with social problems was at the center of sociology&#39;s beginnings.
+
+121
+00:09:02,340 --&gt; 00:09:07,160
+Next time, we&#39;ll introduce different theories of society, the basic paradigms of sociology.
+
+122
+00:09:07,160 --&gt; 00:09:13,060
+Crash Course Sociology is filmed in the Dr. Cheryl C. Kinney Crash Course Studio in Missoula, MT, and it&#39;s made with the help of all these nice people.
+
+123
+00:09:13,060 --&gt; 00:09:17,180
+Our animation team is Thought Cafe, and Crash Course is made with Adobe Creative Cloud
+
+124
+00:09:17,180 --&gt; 00:09:23,940
+If you&#39;d like to keep Crash Course free for everyone, forever, you can support the series at Patreon, a crowdfunding platform that allows you to support the content you love.
+
+125
+00:09:23,940 --&gt; 00:09:30,220
+Speaking of Patreon, we&#39;d like to thank all of our patrons in general, and we&#39;d like to specifically thank our Headmaster of Learning David Cichowski.
+
+126
+00:09:30,220 --&gt; 00:09:31,900
+Thank you for your support.
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make things a little more useful for analysis, I modified pytube’s <code class="docutils literal notranslate"><span class="pre">generate_srt_captions</span></code> function to return the entire caption text in one string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+<span class="kn">from</span> <span class="nn">html</span> <span class="kn">import</span> <span class="n">unescape</span>
+
+
+<span class="k">def</span> <span class="nf">ytcaption_to_string</span><span class="p">(</span><span class="n">caption_object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert caption object to string.&quot;&quot;&quot;</span>
+    <span class="n">xml_captions</span> <span class="o">=</span> <span class="n">caption</span><span class="o">.</span><span class="n">xml_captions</span>
+    <span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml_captions</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">root</span><span class="p">)):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">full_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span>
+    <span class="n">full_text</span> <span class="o">=</span> <span class="n">unescape</span><span class="p">(</span>
+        <span class="n">full_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">full_text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ytcaption_to_string</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Hello, I’m Nicole Sweeney and I have a question for you: Have you ever wondered how the world works? I’m not talking about atoms and molecules, or wave functions and chemical reactions; I mean the world of people. For example, have you ever wondered who goes to college, and why? What is it that makes people march in the streets? How do you know to raise your hand in math class, but not at the dinner table? Why do some people like Broadway musicals, and some people like hip-hop, and some people like both? Well, we&#39;re gonna find out about all of that stuff and so so much more. Especially, you! You’re going to learn about you, and your place in the world because this is Crash Course Sociology. [Theme Music] Sociology got its start thanks to a French philosopher named Auguste Comte in the 1800s. He wanted there to be a systematic science for studying society, a way to investigate and solve its basic problems. And while sociology today is very different from what Comte imagined, that’s still kind of what it is. Sociology is the scientific study of society and human behavior. But isn&#39;t society this great big thing? I mean, society is whole cities; it&#39;s the economy; it&#39;s politics. And what does all that have to do with raising your hand at the dinner table? A lot, as it turns out. A society is just a group of people who share a culture and a territory. And culture is in everything, from the biggest questions in politics to the smallest interactions between people. So yes, society is big, but it&#39;s also very small. Want to see how? Let’s go to the Thought Bubble! Imagine you&#39;re sitting alone in your room, singing along to your favorite Broadway show at the top of your lungs. Not another person in sight. Society isn’t anywhere to be found. Except that it is. Even if you ignore the house that you’re in – and the parents, siblings, or roommates you&#39;re probably bothering while you’re singing so horribly – there’s still the song that you’re singing, and the music that goes with it. Those things, along with literally every object in the room that you didn&#39;t make yourself, are all products of society. And you might be all alone when you’re belting out Hamilton, but you weren&#39;t alone when a friend first introduced you to the musical, and its songs. And for that matter, your taste in music isn&#39;t purely yours either. What kind of music you like can be influenced by anything from what you were exposed to as a kid, to what your friends like now, to what neighborhood you grew up in, or what schools you went to. Society is tricky; it gets in places you might not expect. Thanks Thought Bubble! So when we say that sociology is the study of society and human behavior, that means that sociology is incredibly broad. In fact, it may be the broadest of what we call the social sciences. The social sciences include disciplines like economics and psychology, and while they all have different focuses and perspectives, they&#39;re all trying to understand the social world objectively, through controlled and repeated observation. So what makes sociology different from any of these other social sciences? Well, like the others, sociology is looking for patterns – recurring characteristics or events. But it looks for all kinds of patterns in all kinds of places. Sociology looks at all aspects of society, and at all scales, from two people talking, to differences between nations. It&#39;s this scope that really sets sociology apart, especially in what’s known as the sociological perspective. And the sociological perspective means two things: 1, It means seeing the general in the particular, and 2, it means seeing the strange in the familiar. Seeing the general in the particular is a way of saying that sociology tries to understand social behavior by placing it in its wider social context. To go back to you belting out Broadway tunes in your room, the sociologist who overhears you from the sidewalk might notice not just your choice of what to sing, but how that individual choice may have been influenced by your class, neighborhood, race, gender, or age. To take another example, a sociologist might not care whether or not you, in particular, decide to get married, but she might be interested in learning more about a declining marriage rate in your society – and, say, what&#39;s causing it and whether it’s having any societal impacts. Or maybe she’s more interested in the fact that, in the US, people tend to marry partners of the same class and race as them. In both of these cases – what people sing or whom they marry – the sociologist is interested in a general pattern, a pattern composed of a massive number of particular individual choices. Each individual forms a part of the pattern, and in looking at their individual choices, a sociologist can see elements of the whole pattern, like seeing how a single stone fits into a mosaic. Seeing the strange in the familiar is the second part of the sociological perspective, and it’s maybe more difficult to do. To see the strange in the familiar is to approach the everyday world as though you were seeing it for the first time, as if you were from another world. This is hard, but it&#39;s also incredibly important, and kinda cool. When we asked, at the very beginning, why you raise your hand to ask a question in your math class but not at your dinner table, that’s a very small example of trying to see the strange in the familiar. And this is so hard to do because your own society tends to look normal to you. You take it for granted. As you&#39;re socialized into it, you&#39;re taught a common-sense understanding of society, and that&#39;s not a bad thing! After all, you need a common sense understanding of society in order to live in it, right? You need to know that you shake hands when you meet someone new, and that red means stop, and that you should try to show up on time to things. But if sociology is going to study society, it needs to be able to look at these things as strange and unfamiliar, in order to really understand how they work, and to uncover patterns of behavior in a culture. Common sense has to just get us through the world; but sociology has to know what&#39;s true. And this is important, because a society’s common sense doesn’t consist only of harmless conventions, like shaking hands. Just 200 years ago in the US, it was common sense that only white men were capable of participating in society. It was common sense that slavery was right, and that women shouldn&#39;t be allowed to vote. These things were common sense then in the same way that their opposites are taken for granted now. And the sociological perspective – seeing the general in the particular and strange in the familiar – helps us to understand problems like this, because it helps us see some of the key concepts in the study of society. Among these concepts: social location, marginalization, and power and inequality. If you imagine a map of society, laying out all the different social groups and their relationships to each other, then your social location is your spot on that map. Your social location is a way of classifying yourself, by race, social class, gender, sexual orientation, religion, etc. Understanding social location is important because, just like the sociologist looks for the general in the particular, a person’s life and choices will be influenced by their social location. This is true in a bunch of ways: Most obvious is that your social location can limit your choices. Some groups have legal rights and privileges that others don’t. For instance, until a few years ago, gays and lesbians could not legally marry in the US, so their social location limited their choices. But social location also impacts what you learn, and what you’re taught about society. Whether or not you you go to college, for instance, can be heavily influenced by whether the social class you grew up in tends to see college as a real or valuable possibility. And social location also affects what others have learned, and are taught, about you. Take, for instance, the consistent finding that resumés with names that sound African-American tend to get called for interviews much less often than those with white-sounding names, even though the resumés are otherwise identical. In all these ways, social location can contribute to the marginalization of a social group. If a social group is marginalized, it means that it occupies a position outside the centers of power. Marginalized groups are often racial, ethnic, sexual, or religious minorities, and marginalized groups tend to have a clearer view of how power operates. Heterosexual people, for example, often don’t recognize what a social power it is to have their relationships socially sanctioned, and to be able to display affection in public, in ways that LGBT people often can’t. If marginalization is a matter of being outside the centers of power, that draws our attention to another fact: the fact that there are many different kinds of power, and many different kinds of inequality. There are, of course, the obvious kinds, like economic power and income inequality, or political power and politically-enforced inequalities, like segregation or slavery. But then there are the less obvious kinds, like social or cultural power and inequality. For instance, people who speak with non-standard accents or dialects are often judged harshly for them and can be seen as less intelligent or less mature. Sociology can help us identify and understand all of these things, and maybe even try and fix them. And that’s the point: Sociology is about understanding society, and society&#39;s where we all live, so we&#39;d like it to work as well as possible. Good sociology can help us to create good public policy. And if we think back to Comte, his desire was to do just this, to understand and maybe fix his society&#39;s problems. The late 18th and 19th centuries were a time of massive economic, social, and political upheaval in Europe. This was when industrialization really took off, with factories sprouting up like weeds, connected by larger and larger rail networks. At the same time, the population of Europe exploded, growing faster than at any time in previous history. This was especially true in cities, where industrial production was centralized. And all of these massive economic and social changes came with political shocks, too: This period saw the advent of mass democracy, the fall of kings, and the rise of the nation-state. This, combined with the rise of science as a discipline, was the context in which sociology arose. The first sociologists looked around at their quickly changing societies and were driven to try and scientifically understand them. We said earlier that society wasn&#39;t just big things like revolutions, industrialization, demographics. But it is also these things. It&#39;s both the big and the small, because they’re related. Sociology is about understanding the whole thing, at every level, and how those levels interact. It&#39;s about understanding why you don’t have to raise your hand at the dinner table, and why so-called common sense can lead to massive policy mistakes. Welcome to the science of sociology. Today we talked about what sociology is and what it does. We discussed what it means to be the study of society and why that&#39;s broader than you might think. We introduced the sociological perspective and discussed how sociology differentiates itself from the other social sciences. And finally we discussed what sociology can do, and how that concern with social problems was at the center of sociology&#39;s beginnings. Next time, we&#39;ll introduce different theories of society, the basic paradigms of sociology. Crash Course Sociology is filmed in the Dr. Cheryl C. Kinney Crash Course Studio in Missoula, MT, and it&#39;s made with the help of all these nice people. Our animation team is Thought Cafe, and Crash Course is made with Adobe Creative Cloud If you&#39;d like to keep Crash Course free for everyone, forever, you can support the series at Patreon, a crowdfunding platform that allows you to support the content you love. Speaking of Patreon, we&#39;d like to thank all of our patrons in general, and we&#39;d like to specifically thank our Headmaster of Learning David Cichowski. Thank you for your support.&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Depending on what you are doing with the text, it might also be useful to have the caption in a more structured format, such as a pandas dataframe with columns for the start and end times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ytcaption_to_df</span><span class="p">(</span><span class="n">caption_object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert xml caption to pandas dataframe.&quot;&quot;&quot;</span>
+    <span class="n">xml_captions</span> <span class="o">=</span> <span class="n">caption_object</span><span class="o">.</span><span class="n">xml_captions</span>
+    <span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml_captions</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">root</span><span class="p">)):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">caption</span> <span class="o">=</span> <span class="n">unescape</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;dur&quot;</span><span class="p">])</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">])</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">duration</span>
+        <span class="n">sequence_number</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># convert from 0-indexed to 1.</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="n">sequence_number</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">end</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">caption</span><span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="n">segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ytcaption_to_df</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order</th>
+      <th>start</th>
+      <th>end</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.00</td>
+      <td>2.58</td>
+      <td>Hello, I’m Nicole Sweeney and I have a question for you:</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2.58</td>
+      <td>4.48</td>
+      <td>Have you ever wondered how the world works?</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.48</td>
+      <td>8.62</td>
+      <td>I’m not talking about atoms and molecules, or wave functions and chemical re...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>8.62</td>
+      <td>10.24</td>
+      <td>I mean the world of people.</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>10.24</td>
+      <td>13.32</td>
+      <td>For example, have you ever wondered who goes to college, and why?</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>13.32</td>
+      <td>15.40</td>
+      <td>What is it that makes people march in the streets?</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>15.40</td>
+      <td>18.22</td>
+      <td>How do you know to raise your hand in math class, but not at the dinner table?</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>18.22</td>
+      <td>22.90</td>
+      <td>Why do some people like Broadway musicals, and some people like hip-hop, and...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>22.90</td>
+      <td>27.32</td>
+      <td>Well, we're gonna find out about all of that stuff and so so much more.</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>27.32</td>
+      <td>28.84</td>
+      <td>Especially, you!</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="playlists">
+<h2>Playlists<a class="headerlink" href="#playlists" title="Permalink to this headline">¶</a></h2>
+<p>If you have the URL of a YouTube playlist, pytube can retrieve a list of the video URLs. In this case, I’m going to look at the entire Crash Course Sociology playlist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytube</span> <span class="kn">import</span> <span class="n">Playlist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">Playlist</span><span class="p">(</span>
+    <span class="s2">&quot;https://www.youtube.com/playlist?list=PL8dPuuaLjXtMJ-AfB_7J1538YKWkZAnGA&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">pl</span></code> is a standard Python list, you can look at the length or looks at the first few items using standard syntax.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pl</span><span class="p">))</span>
+<span class="n">pl</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.youtube.com/watch?v=ylXVn-wh9eQ&#39;,
+ &#39;https://www.youtube.com/watch?v=YnCJU6PaCio&#39;,
+ &#39;https://www.youtube.com/watch?v=DbTt_ySTjaY&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you have a playlist of interest, you most likely want to gather information on all the videos and perhaps download them. One option would be to loop over each of the playlist video URLs, storing the information and captions in a new list, which can then be converted to pandas dataframe. In the loop below, I’ve commented out the downloads since I don’t need the video files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">video_meta_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">video_urls</span><span class="p">:</span>
+    <span class="n">yt</span> <span class="o">=</span> <span class="n">YouTube</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">extract_meta</span><span class="p">(</span><span class="n">yt</span><span class="p">)</span>
+
+    <span class="c1"># Get English captions using automated transcription if they aren&#39;t present</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">caption</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">captions</span><span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">):</span>
+        <span class="n">caption</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">captions</span><span class="p">[</span><span class="s1">&#39;a.en&#39;</span><span class="p">]</span>
+        
+    <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;caption&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ytcaption_to_string</span><span class="p">(</span><span class="n">caption</span><span class="o">.</span><span class="n">xml_captions</span><span class="p">)</span>
+
+    <span class="c1"># Download video</span>
+    <span class="c1"># video_id = url.split(&#39;=&#39;)[-1]</span>
+    <span class="c1"># meta[&#39;video_id&#39;] = video_id</span>
+    <span class="c1"># yt.streams.get_highest_resolution().download(video_id)</span>
+
+    <span class="n">video_meta_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">video_meta_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Downloading the metadata and captions for the playlist took me almost two minutes, or approximately 2.5 seconds per video.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>author</th>
+      <th>title</th>
+      <th>length</th>
+      <th>publish_date</th>
+      <th>keywords</th>
+      <th>watch_url</th>
+      <th>thumbnail_url</th>
+      <th>description</th>
+      <th>views</th>
+      <th>Download Time</th>
+      <th>caption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>CrashCourse</td>
+      <td>Theory &amp; Deviance: Crash Course Sociology #19</td>
+      <td>585</td>
+      <td>2017-07-24</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=06IS_X7hWWI</td>
+      <td>https://i.ytimg.com/vi/06IS_X7hWWI/maxresdefault.jpg</td>
+      <td>Last week we introduced deviance as a concept, but today we’re going return ...</td>
+      <td>348994</td>
+      <td>2020-11-23 07:45:14.708954</td>
+      <td>As we noted last week, an armed robber and a pacifist have something in comm...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CrashCourse</td>
+      <td>Karl Marx &amp; Conflict Theory: Crash Course Sociology #6</td>
+      <td>679</td>
+      <td>2017-04-17</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=gR3igiwaeyc</td>
+      <td>https://i.ytimg.com/vi/gR3igiwaeyc/maxresdefault.jpg</td>
+      <td>Today we’ll continue to explore sociology’s founding theorists with a look a...</td>
+      <td>1448068</td>
+      <td>2020-11-23 07:44:40.672428</td>
+      <td>You’ve probably heard of Karl Marx. He's remembered as the father of divisiv...</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>CrashCourse</td>
+      <td>Schools &amp; Social Inequality: Crash Course Sociology #41</td>
+      <td>686</td>
+      <td>2018-01-22</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=hYMk3Bk08NA</td>
+      <td>https://i.ytimg.com/vi/hYMk3Bk08NA/maxresdefault.jpg</td>
+      <td>In the second half of our education unit, we’re using conflict theory to exp...</td>
+      <td>246793</td>
+      <td>2020-11-23 07:46:08.737541</td>
+      <td>We’ve all complained about having to go to school at some point, right? I me...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A quick analysis of the resulting dataframe shows that it worked and considerably drop off in viewers after the first video.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;views&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>author</th>
+      <th>title</th>
+      <th>length</th>
+      <th>publish_date</th>
+      <th>keywords</th>
+      <th>watch_url</th>
+      <th>thumbnail_url</th>
+      <th>description</th>
+      <th>views</th>
+      <th>Download Time</th>
+      <th>caption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>CrashCourse</td>
+      <td>What Is Sociology?: Crash Course Sociology #1</td>
+      <td>581</td>
+      <td>2017-03-13</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=YnCJU6PaCio</td>
+      <td>https://i.ytimg.com/vi/YnCJU6PaCio/maxresdefault.jpg</td>
+      <td>Today we kick off Crash Course Sociology by explaining what exactly sociolog...</td>
+      <td>2242224</td>
+      <td>2020-11-23 07:44:29.365492</td>
+      <td>Hello, I’m Nicole Sweeney and I have a question for you: Have you ever wonde...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CrashCourse</td>
+      <td>Karl Marx &amp; Conflict Theory: Crash Course Sociology #6</td>
+      <td>679</td>
+      <td>2017-04-17</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=gR3igiwaeyc</td>
+      <td>https://i.ytimg.com/vi/gR3igiwaeyc/maxresdefault.jpg</td>
+      <td>Today we’ll continue to explore sociology’s founding theorists with a look a...</td>
+      <td>1448068</td>
+      <td>2020-11-23 07:44:40.672428</td>
+      <td>You’ve probably heard of Karl Marx. He's remembered as the father of divisiv...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CrashCourse</td>
+      <td>Major Sociological Paradigms: Crash Course Sociology #2</td>
+      <td>579</td>
+      <td>2017-03-20</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=DbTt_ySTjaY</td>
+      <td>https://i.ytimg.com/vi/DbTt_ySTjaY/maxresdefault.jpg</td>
+      <td>This week we introduce sociology’s three major theoretical paradigms, and so...</td>
+      <td>1083967</td>
+      <td>2020-11-23 07:44:31.670732</td>
+      <td>What’s up with society, exactly? I mean, is it a smoothly functioning whole,...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>CrashCourse</td>
+      <td>Crash Course Sociology Preview</td>
+      <td>79</td>
+      <td>2017-02-27</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=ylXVn-wh9eQ</td>
+      <td>https://i.ytimg.com/vi/ylXVn-wh9eQ/maxresdefault.jpg</td>
+      <td>Beginning Mondays in March, we are bringing you Crash Course Sociology. Host...</td>
+      <td>876736</td>
+      <td>2020-11-23 07:44:27.282307</td>
+      <td>Hello! I am not Hank. I am Nicole and I’m usually a behind-the-scenes member...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CrashCourse</td>
+      <td>Émile Durkheim on Suicide &amp; Society: Crash Course Sociology #5</td>
+      <td>577</td>
+      <td>2017-04-10</td>
+      <td>[John Green, Hank Green, vlogbrothers, Crash Course, crashcourse, education,...</td>
+      <td>https://youtube.com/watch?v=IZfGGF-YYzY</td>
+      <td>https://i.ytimg.com/vi/IZfGGF-YYzY/maxresdefault.jpg</td>
+      <td>Now that we’ve talked a little bit about how sociology works, it’s time to s...</td>
+      <td>787395</td>
+      <td>2020-11-23 07:44:38.353248</td>
+      <td>So, the fact that we have society at all is kind of amazing. Think about it:...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Finally, for fun, an old-school word cloud made from the captions. You will need to <code class="docutils literal notranslate"><span class="pre">%conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">wordcloud</span></code> if you do not already have the wordcloud library</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;caption&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">max_font_size</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/YouTube_40_0.png" src="../_images/YouTube_40_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="other-data">
+<h2>Other data<a class="headerlink" href="#other-data" title="Permalink to this headline">¶</a></h2>
+<p>If you want other YouTube data, such as the list of videos that will autoplay or from a specific user, things get more complicated. There might be a Python library available, but most likely you will have to write your own web scraper using <a class="reference external" href="https://selenium-python.readthedocs.io">Selenium</a> to control your browser. You’ll also have to use a <a class="reference external" href="https://docs.livestreamer.io/api_guide.html">different library</a>, or build you own solution, to caputre livestreams.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./web"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="undocumented.html" title="previous page">Undocument APIs</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Neal Caren<br/>
+        
+          <div class="extra_footer">
+            University of North Carolina, Chapel Hill
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

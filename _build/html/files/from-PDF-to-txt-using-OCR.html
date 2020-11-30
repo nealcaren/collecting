@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Install the required packages &#8212; Data Collection in Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data from the Web" href="../web.html" />
+    <link rel="prev" title="Data from the Files" href="../files.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/networks.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Collection in Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Data Collection in Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../starting.html">
+   Getting Started with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/setup.html">
+     Setting up Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/using-jupyter-notebooks.html">
+     Using Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/python.html">
+     Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../setup/pandas.html">
+     Data management in pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../files.html">
+   Data from the Files
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Install the required packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../web.html">
+   Data from the Web
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/newspapers.html">
+     Downloading newspaper articles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/undocumented.html">
+     Undocument APIs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/YouTube.html">
+     Youtube
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nealcaren/recipes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nealcaren/recipes/master?urlpath=tree/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/nealcaren/recipes/blob/master/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="install-the-required-packages">
+<h1>Install the required packages<a class="headerlink" href="#install-the-required-packages" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">pdf2image</span> <span class="n">tesseract</span> <span class="n">poppler</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyocr</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">conda</span> install poppler
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/nealcaren/opt/anaconda3/envs/recipes
+
+  added / updated specs:
+    - poppler
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2020.11.8          |   py38hecd8cb5_0         148 KB
+    openssl-1.1.1h             |       haf1e3a3_0         2.2 MB
+    pixman-0.40.0              |       haf1e3a3_0         340 KB
+    poppler-0.81.0             |       h2ef9dbd_1         1.4 MB
+    ------------------------------------------------------------
+                                           Total:         4.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  cairo              pkgs/main/osx-64::cairo-1.14.12-hc4e6be7_4
+  curl               pkgs/main/osx-64::curl-7.71.1-hb0a8c7a_1
+  fontconfig         pkgs/main/osx-64::fontconfig-2.13.0-h5d5b041_1
+  gettext            pkgs/main/osx-64::gettext-0.19.8.1-hb0f4f8b_2
+  glib               pkgs/main/osx-64::glib-2.66.1-h9bbe63b_0
+  krb5               pkgs/main/osx-64::krb5-1.18.2-h75d18d8_0
+  libcurl            pkgs/main/osx-64::libcurl-7.71.1-h8a08a2b_1
+  libedit            pkgs/main/osx-64::libedit-3.1.20191231-h1de35cc_1
+  libssh2            pkgs/main/osx-64::libssh2-1.9.0-ha12b0ac_1
+  pcre               pkgs/main/osx-64::pcre-8.44-hb1e8313_0
+  pixman             pkgs/main/osx-64::pixman-0.40.0-haf1e3a3_0
+  poppler            pkgs/main/osx-64::poppler-0.81.0-h2ef9dbd_1
+  poppler-data       pkgs/main/osx-64::poppler-data-0.4.10-hecd8cb5_0
+
+The following packages will be UPDATED:
+
+  libxml2            conda-forge::libxml2-2.9.10-h2c6e4a5_2 --&gt; pkgs/main::libxml2-2.9.10-h7cdb67c_3
+  libxslt            conda-forge::libxslt-1.1.33-h29b7fa6_1 --&gt; pkgs/main::libxslt-1.1.34-h83b36ba_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    conda-forge::ca-certificates-2020.11.~ --&gt; pkgs/main::ca-certificates-2020.10.14-0
+  certifi            conda-forge::certifi-2020.11.8-py38h5~ --&gt; pkgs/main::certifi-2020.11.8-py38hecd8cb5_0
+  icu                      conda-forge::icu-67.1-hb1e8313_0 --&gt; pkgs/main::icu-58.2-h0a44026_3
+  openssl                                       conda-forge --&gt; pkgs/main
+
+
+
+Downloading and Extracting Packages
+openssl-1.1.1h       | 2.2 MB    | ##################################### | 100% 
+pixman-0.40.0        | 340 KB    | ##################################### | 100% 
+certifi-2020.11.8    | 148 KB    | ##################################### | 100% 
+poppler-0.81.0       | 1.4 MB    | ##################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Details about pdf2image</p>
+<p>https://github.com/Belval/pdf2image</p>
+<p>Datils about pyocr
+https://gitlab.gnome.org/World/OpenPaperwork/pyocr</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flyer</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="s1">&#39;../data/NAWSA.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flyer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/from-PDF-to-txt-using-OCR_6_0.png" src="../_images/from-PDF-to-txt-using-OCR_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyocr.tesseract</span> <span class="kn">import</span> <span class="n">image_to_string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">image_to_string</span><span class="p">(</span><span class="n">flyer</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DO IT NOW!
+
+GIVE THE VOTE TO THE WOMEN OF EVERY
+STATE IN THE UNION BY
+
+Federal Constitutional Amendment
+
+BECAUSE—Woman suffrage is inevitable all the world
+around; few deny it—why should the United States delay?
+
+BECAUSE—Great Britain and Canada have already enfran-
+chised the women of their nations within a year, and the
+women of Finland, Norway, Denmark, Iceland, Australia
+and New Zealand had suffrage on equal terms with men
+before our country entered the war. What the neutrals
+and our allies have done in war time, our Republic can do.
+
+BECAUSE—A “100 per cent American’ Republic cannot logic-
+ally deny to oe women the political Pabeity that mon-
+archies have extended.
+
+BECAUSE—AII political parties have endorsed the Federal
+Suffrage Amendment either in platforms adopted by na-
+tional conventions or by action of their national com-
+mittees.
+
+BECAUSE—The edebennient which asks the women of the
+
+country to give their all to win a war for democracy
+abroad, cannot consistently deny them the vote, the sym-
+bol of democracy, at home.
+
+BECAUSE—The woman suffrage movement is a part of the
+great struggle of the world contest for fundamental hu-
+man freedom, and until the amendment is ratified by the
+legislatures of the states the suffrage campaign must and
+will go on.
+
+SUPPORT THE FEDERAL SUFFRAGE AMENDMENT
+
+NATIONAL AMERICAN WOMAN SUFFRAGE ASSOCIATION
+
+171 Madison Avenue 5 New York City
+Printed July 1918
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">journal_pages</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="s1">&#39;../data/Progressive_Woman_Vol-4_Iss-42.pdf&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">journal_pages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">journal_pages</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/from-PDF-to-txt-using-OCR_12_0.png" src="../_images/from-PDF-to-txt-using-OCR_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">journal_pages</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+
+ 
+
+FROM ELLIS ISLAND TO COUNTY
+JAIL.
+
+ 
+
+Joc K.
+
+They come over in the steerage. There
+they are herded like cattle and treated like
+brutes. Their passage money pays the ship,
+but they get the dregs, the wormy food, the
+inconveniences, the oaths and inhuman treat-
+ment, while the first and second-class pas-
+sengers receive all the good things, though
+they pay, compared with the actual cost of
+service, even less than the immigrants pay
+for transportation. In other words, were it
+not for the profits made from the transporta-
+tion of immigrants, the others could not get
+the splendid service they do, at the prices they
+pay. That is why it is said that the immigrant
+“pays the ship.” When he arrives with his
+family at Ellis Island he is still treated more
+like an animal than a human being, and is
+tagged and carted about like so much stock,
+until disposed of.
+
+And after he is disposed of? Are all things
+right with him then? What are his chances
+in the land of wealth and of promise along
+with the “better classes”? Is he given as
+good as they get—or does he still pay the
+ship?
+
+In ninety-nine and nine-tenths cases out
+of a hundred, he remains the hoard, the mass.
+he is overworked at poor wages; he is fed
+on slops and adulterated and wormy foods;
+he buys shoddy clothing at an enormous profit
+to the manufacturer, he lives in filthy holes
+at a high rent. He is, indeed, just what
+he was on board ship—the exploited, the
+profit-maker for the concern; for the United
+States government and the men who own it.
+He still pays the ship.
+
+But not without some cost and trouble on
+the part of the ship management—this time,
+the Ship of State. His low wages, his filthy
+food, his ugly, crowded home, are not con-
+ducive to creating within him the highest
+powers of moral judgment, and he not in-
+frequently follows the line of least resistance
+—and breaks a law. Then the wise law-mak-
+ers retaliate by shutting him up, at the ex-
+pense of the rest of his kind—and a few
+others.—And the few others have objected to
+carrying even this much of him on their
+hands, to the extent that they are forcing
+institutions where he must work out his own
+criminal expense—and a neat little profit for
+the state beside. In this way he is sure of
+carrying the whole burden, not only of him-
+self, and his kind, but of the rest of society
+as well.
+
+Down in the county jail here in Girard
+some women of the erstwhile immigrant
+class are carefully stored away for the crime
+of selling liquor in a “dry” state. I was
+told that during a recent coal strike in this
+county a good many wives of miners re-
+sorted to this method of putting pennies in
+their purses, and incidently keeping the wolf
+from the door. It was an interesting story
+and I went over to look at the women. ‘They
+had all been let out but two. One of these
+was busy at work upstairs—helping to pay
+the ship, I suppose. The other one told me
+all about it.
+
+She was forty years old, her husband had
+heen sickly for a long time, her 17-year-old
+daughter had been out of work, and, “as the
+other women were doing it, I thought I would
+try my hand,” she said. “We didn’t have any
+money, and I had tou make some payments on
+our stoves, and other things, and I thought
+I&#39;d just sell it long enough to get a little
+
+ahead. They told me I&#39;d get caught the first !
+
+THE PROGRESSIVE WOMAN. m
+
+thing. I sold for a few days, but I got
+scared and intended to quit after Saturday
+night. But Saturday night they caught me.
+I had just $3, and I reckon that is all gotie
+now. Yes, I reckon my folks are worryin’
+about me. My mother is 60 years old and
+sick, and I guess she is pretty worried. This
+is the first time I ever got into any trouble
+and I bet it will be the last time... . But
+I’ve always had such a hard time, and I just
+thought if I could get a little ahead until the
+girl or my husband could get something to
+do, it would help some.” Repeatedly during
+our conversation she sighed heavily, and said
+she was “awfully worried.”
+
+She expects to have to pay a fine at the
+end of her term, and as she hasn’t the where-
+withal to do it with, she is afraid they will
+keep her indefinitely. They won&#39;t. It costs
+money to feed her even the fried potatoes,
+bucket of coffee and two slices of bread
+her mate brought down before I left. They
+will turn her out to more starvation and more
+temptation. ‘The more liquor she sells the
+more valuable she is to the powers that be,
+under present conditions.
+
+In the meantime, I am told that the county
+officials are “making a lot of money out of
+all these arrests.” All of which perhaps is
+merely a side issue and not applicable to the
+case in hand, except that somebody is paying
+the ship here, too.
+
+From Ellis Island—and almost as often,
+from our own farms and towns and cities—
+to the county jail, the penitentiary and the
+gallows is a hard, weary road, sometimes
+short, sometimes long; and it is traveled by
+the workingman and the workingwoman, the
+underpaid, the down-trodden, the timid, the
+exploited, in the vast majority of cases.
+
+Very truly can we say, workingmen and
+women of the world unite, you have nothing
+to lose but your chains; you have everything
+else to gain.
+
+Havo You Read “War—What For?”
+
+BY GEORGE R. KIRKPATRICK.
+
+Here is what Engene V. Debs says
+about it: “. .. I have the book, War—
+What for? in my hand, and its keen and
+trenchant passages stir me, thrill me,
+. .. this wonderful book, . . . this out-
+pouring of your brain and heart and
+soul, this marvelous plea to all that is
+human in man... .
+
+“The cutting, opigrammatic opening
+sentences, the pictures, illustrations,
+comparisons, and vivid portrayals of
+
+your inspired pen, coupled with the
+the burning appeals hot from your in-
+dignant soul, all combine to make this
+the book of an epoch, an immortal
+achievement... . ”
+
+Price, $1.20. Order from Progressive
+Woman.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+There is an enormous physical deterioration as
+well of the children and young persons as of
+the women, whom machinery subjects to the
+exploitation of capital. There is a tremendous
+mortality. during the first few years of their
+life, of ‘the children of the operatives, As was
+shown by an official medical inquiry, the high
+death rates are principally due to the employment
+of the mothers away from their hemes, and to
+the neglect and maltreatment consequent on her
+absence, such as insufficient nourishment, un-
+suitable food and dosing with oplates; besides
+this there arises an unnatural estrangement be-
+tween mother and child, and as a_ consequence
+intentional starving and poisoning of children.
+
+By the excessive addition of women and chil-
+dren to the ranks of the workers, machinery at
+last breaks down the resistance which the male
+operatives In the manufacturing perlod continued
+to oppose the despotism of capital.-—Karl Marx
+in Capital.
+
+  
+
+Advertisers pay for their ads. ‘Chat helps pay
+
+ 
+
+for this paper. When you order from our adver-
+{isers you are helping boost the Woman.
+
+——————
+
+UNCLE REUB ON THE WOMAN
+QUESTION..
+
+ 
+
+J.
+
+c. K.
+(N my day wim
+
+min wuz all satis-
+
+fied. They kept
+still. They kept
+their place as wuz
+their duty, and
+
+learned uv us men.
+Today they ain
+no wimmin. satis-
+fied. .Every gol
+darned one uv ’em
+is a-fussin’ about
+sumthin’. They
+
+Gicrek simply kaint keep
+* still, And as fer
+learnen’ uv us men—ye might es well expect a
+man to sit down meek like, and lern uv a
+woman, as fer the modern wimmin to listen
+to the wisdum uy us monarchs uv the race.
+
+Uv coarse, they kaint nothin’ else come
+uv it, but the bustin’ up uv the home. Fer
+how can a home be a home, when the wim-
+min won’t stay to home and take keer of it?
+Look at all of these females makin’ a rush
+fer the factory, an’ dry-goods store, an’ cot-
+ton mills. The anshunt Marathon weren&#39;t in
+it along side of them. They’re goin’ by the
+millions, and purty soon it’ll be by the trillions
+an’ quadrillions, an’ bimeby we’ll have to in-
+vent some more illions, jest to measure the
+stacks of wimmen as air leavin’ their happy
+homes fer outside amusements, such as the
+afore menshuned. 5
+
+The trouble of it all is—What air we MEN
+a-goin’ to do? We would be perfektly help-
+luss. We kain’t cook. It strains our saintly
+pashuns to the limit already jest to build the
+kitchen fires. An’ Ill be gol-darned ef we&#39;re
+a-goin’ to soil our manly hands by contact
+with common dish water. Not yer Uncle
+Reuben, by Heck !
+
+Then there’s the childurn. What man ever
+knowd how to carry a squallin’ kid? Down-
+side up, er up-side down—it&#39;s all th’ same
+ter him when the measly brat’s a howlin’ fer
+pure devilment. It’s too hard on his delicate
+nerves. Only a woman can decipher this
+enigma of infent’s moods. It’s her speer. An’
+I’m willin’ to admit, ef the worst comes to
+the worst, I’m willin’. to enforce the law
+that&#39;ll keep her in her speer—ef I have to
+use a club, God never give us men superior
+physical powers fer nothin’. I reckon he
+knowd what was a-comin’.
+
+ 
+
+No siree, none uv yore “woman&#39;s suffer-
+age” fer mine. My old woman died long be-
+fore this here melee about sufferage wim-
+min come up—an’ I&#39;ll bet she’s mighty ding
+glad uv it. She’d a knowd better&#39;n to hev
+opened her mouth, enny way. An’ es fer
+Soshulism—every authority lovin’ man from
+the North Pole to the torrid zone onght to
+jine in a solid falanx an’ fight this monster-
+friend of woman&#39;s emancipashun. Soshulism
+is woman&#39;s best friend, therefore it must be
+man’s worst enemy. Any man that wants
+to rule the roost can see that with one half
+uv a had eye.
+
+I’m a stand-patter, when it comes to law
+an’ order, an’ the enforcement uv the geod
+old way. I&#39;m fer shovin’ the whole blamed
+brood uv females back to the hen roost.
+an’ fer that reason I’m agin sufferage i”
+Soshulism an’ all the rest of the blame thing
+that&#39;s agin the persunal interests of man, and
+is disconcertin’ to his sense of dignity.
+
+All them that’s with me hold up yore hands
+All that ain’t, please keep still—you might .
+
+ 
+
+ 
+
+make too much (noise.
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="../_images/rough_graph.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;../data/Progressive_Woman_Vol-4_Iss-42.pdf&#39;</span>
+
+<span class="n">pages</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+<span class="n">pages</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+
+
+<span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pages</span><span class="p">):</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span>        <span class="p">:</span> <span class="n">image_to_string</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
+           <span class="s1">&#39;page_number&#39;</span>  <span class="p">:</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="s1">&#39;image&#39;</span>        <span class="p">:</span> <span class="n">page</span><span class="p">,</span>
+           <span class="s1">&#39;fn&#39;</span>           <span class="p">:</span> <span class="n">file_name</span><span class="p">}</span>
+    
+    <span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>page_number</th>
+      <th>image</th>
+      <th>fn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>we\n\nStanford Liksssy «\nFOR THE WOMAN WHO WO...</td>
+      <td>1</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2\n\n \n\nFROM ELLIS ISLAND TO COUNTY\nJAIL.\n...</td>
+      <td>2</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>et\n\nTHE PROGRESSIVE WOMAN.\n\n \n\nTHE SWEAT...</td>
+      <td>3</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/from-PDF-to-txt-using-OCR_18_0.png" src="../_images/from-PDF-to-txt-using-OCR_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s1">&#39;pw.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;pw.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>page_number</th>
+      <th>image</th>
+      <th>fn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>we\n\nStanford Liksssy «\nFOR THE WOMAN WHO WO...</td>
+      <td>1</td>
+      <td>{'category': 0, 'custom_mimetype': 'image/x-po...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2\n\n \n\nFROM ELLIS ISLAND TO COUNTY\nJAIL.\n...</td>
+      <td>2</td>
+      <td>{'category': 0, 'custom_mimetype': 'image/x-po...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>et\n\nTHE PROGRESSIVE WOMAN.\n\n \n\nTHE SWEAT...</td>
+      <td>3</td>
+      <td>{'category': 0, 'custom_mimetype': 'image/x-po...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;pw.pickle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;pw.pickle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>page_number</th>
+      <th>image</th>
+      <th>fn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>we\n\nStanford Liksssy «\nFOR THE WOMAN WHO WO...</td>
+      <td>1</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2\n\n \n\nFROM ELLIS ISLAND TO COUNTY\nJAIL.\n...</td>
+      <td>2</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>et\n\nTHE PROGRESSIVE WOMAN.\n\n \n\nTHE SWEAT...</td>
+      <td>3</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Progressive_Woman_Vol-4_Iss-42.pdf</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/from-PDF-to-txt-using-OCR_25_0.png" src="../_images/from-PDF-to-txt-using-OCR_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+<span class="kn">from</span> <span class="nn">pyocr.tesseract</span> <span class="kn">import</span> <span class="n">image_to_string</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">pdf_ocr_df</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    OCR PDF returning a dataframe.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pages</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+    <span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pages</span><span class="p">):</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">image_to_string</span><span class="p">(</span><span class="n">page</span><span class="p">),</span>
+            <span class="s2">&quot;page_number&quot;</span><span class="p">:</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">page</span><span class="p">,</span>
+            <span class="s2">&quot;fn&quot;</span><span class="p">:</span> <span class="n">file_name</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pdf_ocr_df</span><span class="p">(</span><span class="s1">&#39;../data/Mother-Earth_Vol-6_Iss-2.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../files.html" title="previous page">Data from the Files</a>
+    <a class='right-next' id="next-link" href="../web.html" title="next page">Data from the Web</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Neal Caren<br/>
+        
+          <div class="extra_footer">
+            University of North Carolina, Chapel Hill
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

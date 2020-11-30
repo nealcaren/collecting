@@ -1,0 +1,29 @@
+name: collecting
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - notebook
+  - gensim
+  - newspaper3k
+  - pyldavis
+  - pip
+  - pdf2image #pdf-ocr
+  - tesseract #pdf-ocr
+  - poppler #pdf-ocr
+  - python-slugify # downloading
+  - docx2txt #word documents
+
+  - pip:
+    - requests-html
+    - twint
+    - praw
+    - pdtext
+    - pyocr
+    - blackcellmagic
+    - jupyter-book
+    - ghp-import
+    - pytube #youtube
+    - pyocr

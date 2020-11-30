@@ -1,0 +1,22 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+- file: starting
+  sections:
+    - file: setup/setup
+    - file: setup/using-jupyter-notebooks
+    - file: setup/python
+    - file: setup/pandas
+
+- file: files
+  sections:
+    - file: files/from-PDF-to-txt-using-OCR
+
+- file: web
+  sections:
+    - file: web/newspapers
+    - file: web/undocumented
+    - file: web/YouTube
+    - file: web/downloading
+    
