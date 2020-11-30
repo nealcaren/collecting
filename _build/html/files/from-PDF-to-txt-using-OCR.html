@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Install the required packages &#8212; Data Collection in Python</title>
+    <title>Convert PDF to text &#8212; Data Collection in Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data from the Web" href="../web.html" />
-    <link rel="prev" title="Data from the Files" href="../files.html" />
+    <link rel="prev" title="Word Documents" href="word.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -128,9 +128,14 @@
    Data from the Files
   </a>
   <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="word.html">
+     Word Documents
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Install the required packages
+     Convert PDF to text
     </a>
    </li>
   </ul>
@@ -155,6 +160,21 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../web/YouTube.html">
      Youtube
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/downloading.html">
+     Downloading in Bulk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/downloading.html#putting-it-all-together">
+     Putting it all together
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/downloading.html#urls-in-pandas">
+     URLs in Pandas
     </a>
    </li>
   </ul>
@@ -213,7 +233,7 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/nealcaren/recipes"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/nealcaren/collecting"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
@@ -235,7 +255,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/nealcaren/recipes/master?urlpath=tree/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nealcaren/collecting/master?urlpath=tree/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -243,7 +263,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/nealcaren/recipes/blob/master/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/nealcaren/collecting/blob/master/files/from-PDF-to-txt-using-OCR.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -264,84 +284,11 @@
         
               <div>
                 
-  <div class="section" id="install-the-required-packages">
-<h1>Install the required packages<a class="headerlink" href="#install-the-required-packages" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="convert-pdf-to-text">
+<h1>Convert PDF to text<a class="headerlink" href="#convert-pdf-to-text" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">pdf2image</span> <span class="n">tesseract</span> <span class="n">poppler</span>
 <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyocr</span>
 </pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">conda</span> install poppler
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-## Package Plan ##
-
-  environment location: /Users/nealcaren/opt/anaconda3/envs/recipes
-
-  added / updated specs:
-    - poppler
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    certifi-2020.11.8          |   py38hecd8cb5_0         148 KB
-    openssl-1.1.1h             |       haf1e3a3_0         2.2 MB
-    pixman-0.40.0              |       haf1e3a3_0         340 KB
-    poppler-0.81.0             |       h2ef9dbd_1         1.4 MB
-    ------------------------------------------------------------
-                                           Total:         4.0 MB
-
-The following NEW packages will be INSTALLED:
-
-  cairo              pkgs/main/osx-64::cairo-1.14.12-hc4e6be7_4
-  curl               pkgs/main/osx-64::curl-7.71.1-hb0a8c7a_1
-  fontconfig         pkgs/main/osx-64::fontconfig-2.13.0-h5d5b041_1
-  gettext            pkgs/main/osx-64::gettext-0.19.8.1-hb0f4f8b_2
-  glib               pkgs/main/osx-64::glib-2.66.1-h9bbe63b_0
-  krb5               pkgs/main/osx-64::krb5-1.18.2-h75d18d8_0
-  libcurl            pkgs/main/osx-64::libcurl-7.71.1-h8a08a2b_1
-  libedit            pkgs/main/osx-64::libedit-3.1.20191231-h1de35cc_1
-  libssh2            pkgs/main/osx-64::libssh2-1.9.0-ha12b0ac_1
-  pcre               pkgs/main/osx-64::pcre-8.44-hb1e8313_0
-  pixman             pkgs/main/osx-64::pixman-0.40.0-haf1e3a3_0
-  poppler            pkgs/main/osx-64::poppler-0.81.0-h2ef9dbd_1
-  poppler-data       pkgs/main/osx-64::poppler-data-0.4.10-hecd8cb5_0
-
-The following packages will be UPDATED:
-
-  libxml2            conda-forge::libxml2-2.9.10-h2c6e4a5_2 --&gt; pkgs/main::libxml2-2.9.10-h7cdb67c_3
-  libxslt            conda-forge::libxslt-1.1.33-h29b7fa6_1 --&gt; pkgs/main::libxslt-1.1.34-h83b36ba_0
-
-The following packages will be SUPERSEDED by a higher-priority channel:
-
-  ca-certificates    conda-forge::ca-certificates-2020.11.~ --&gt; pkgs/main::ca-certificates-2020.10.14-0
-  certifi            conda-forge::certifi-2020.11.8-py38h5~ --&gt; pkgs/main::certifi-2020.11.8-py38hecd8cb5_0
-  icu                      conda-forge::icu-67.1-hb1e8313_0 --&gt; pkgs/main::icu-58.2-h0a44026_3
-  openssl                                       conda-forge --&gt; pkgs/main
-
-
-
-Downloading and Extracting Packages
-openssl-1.1.1h       | 2.2 MB    | ##################################### | 100% 
-pixman-0.40.0        | 340 KB    | ##################################### | 100% 
-certifi-2020.11.8    | 148 KB    | ##################################### | 100% 
-poppler-0.81.0       | 1.4 MB    | ##################################### | 100% 
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-
-Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Details about pdf2image</p>
 <p>https://github.com/Belval/pdf2image</p>
@@ -368,7 +315,7 @@ https://gitlab.gnome.org/World/OpenPaperwork/pyocr</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/from-PDF-to-txt-using-OCR_6_0.png" src="../_images/from-PDF-to-txt-using-OCR_6_0.png" />
+<img alt="../_images/from-PDF-to-txt-using-OCR_5_0.png" src="../_images/from-PDF-to-txt-using-OCR_5_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -466,7 +413,7 @@ Printed July 1918
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/from-PDF-to-txt-using-OCR_12_0.png" src="../_images/from-PDF-to-txt-using-OCR_12_0.png" />
+<img alt="../_images/from-PDF-to-txt-using-OCR_11_0.png" src="../_images/from-PDF-to-txt-using-OCR_11_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -894,7 +841,7 @@ make too much (noise.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/from-PDF-to-txt-using-OCR_18_0.png" src="../_images/from-PDF-to-txt-using-OCR_18_0.png" />
+<img alt="../_images/from-PDF-to-txt-using-OCR_17_0.png" src="../_images/from-PDF-to-txt-using-OCR_17_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1046,7 +993,7 @@ make too much (noise.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/from-PDF-to-txt-using-OCR_25_0.png" src="../_images/from-PDF-to-txt-using-OCR_25_0.png" />
+<img alt="../_images/from-PDF-to-txt-using-OCR_24_0.png" src="../_images/from-PDF-to-txt-using-OCR_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1091,6 +1038,70 @@ make too much (noise.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>page_number</th>
+      <th>image</th>
+      <th>fn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Vol. VI. APRIL, 1911\n\n   \n \n  \n\nCONTENTS...</td>
+      <td>1</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Mother-Earth_Vol-6_Iss-2.pdf</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anarchism and Other Essay\n\n \n\nEMMA GOLDMAN...</td>
+      <td>2</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Mother-Earth_Vol-6_Iss-2.pdf</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>60\n\nMorHer Carta\n\nMonthly Magazine Devoted...</td>
+      <td>3</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Mother-Earth_Vol-6_Iss-2.pdf</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>34 EvERLASTING MurDER\n\nEVERLASTING MURDER\nB...</td>
+      <td>4</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Mother-Earth_Vol-6_Iss-2.pdf</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>MortHer Eartu 35\n\nful if it wishes to enjoy ...</td>
+      <td>5</td>
+      <td>&lt;PIL.PpmImagePlugin.PpmImageFile image mode=RG...</td>
+      <td>../data/Mother-Earth_Vol-6_Iss-2.pdf</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1098,10 +1109,71 @@ make too much (noise.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/from-PDF-to-txt-using-OCR_28_0.png" src="../_images/from-PDF-to-txt-using-OCR_28_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mornuer EartH 37,
+
+OBSERVATIONS AND COMMENTS
+
+i was truly a procession of gigantic proportions that
+
+took place in New York on the fifth of April. For
+hours the mourning thousands marched, in pouring rain
+and chilling wind, along the streets of the city. This
+tremendous army of toil—men, women, and children;
+young and old—paid tribute to their hundred and forty-
+five fellow-workers that fell victims to the fire in the
+Triangle shirt-waist factory.
+
+Together with the mourning hosts marched Patience.
+Enormous, incredible patience that broods and broods
+and vainly waits for a Messiah to bid halt to the un-
+ceasing murder.
+
+The lioness sacrifices her life for her threatened cubs;
+the timid bird even flies unhesitatingly to the rescue of
+her young; only man—and especially the workingman—
+is so tamed by habitual submission that the thought of
+militant self-protection is foreign to him. He leaves his
+defence to “higher powers,” and is forever duped.
+
+Yet, in spite of this inexhaustible patience, these higher
+powers must have regarded the marching hosts with
+strong suspicion. They were fearful lest deep in the
+hearts of the mourners there may seethe the spirit of
+rebellion and rage, ready to manifest itself. Therefore,
+police to the front! large numbers of police, to regulate
+the emotions of the mourners and keep a restraining
+hand upon their movements and behavior.
+
+Thus we vegetate to-day. But the hour may strike
+when labor will free itself from paralyzing Patience and
+break the fetters of its deadening thraldom.
+
+ee
+OTICING in the New York Call the statement that
+Andrew Carnegie had contributed five thousand
+dollars to the Relief Fund, to aid the families of the
+Triangle fire victims, I wrote to the chairman of the
+Relief Fund of the Garment Workers’ Union, protesting
+against the “philanthropy” of the Homestead murderer.
+My letter was published in the Call of March gist, as
+follows:
+CARNEGIE’S DONATION FOR THE VICTIMS.
+
+ALEXANDER BERKMAN DENOUNCES ITS ACCEPTANCE BY UNION
+RELIEF COMMITTEE.
+
+Alexander Berkman, the Anarchist, has sent the following
 </pre></div>
 </div>
 </div>
@@ -1136,7 +1208,7 @@ make too much (noise.
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../files.html" title="previous page">Data from the Files</a>
+    <a class='left-prev' id="prev-link" href="word.html" title="previous page">Word Documents</a>
     <a class='right-next' id="next-link" href="../web.html" title="next page">Data from the Web</a>
 
     </div>

@@ -11,6 +11,7 @@
 
 - file: files
   sections:
+    - file: files/word
     - file: files/from-PDF-to-txt-using-OCR
 
 - file: web
@@ -19,4 +20,3 @@
     - file: web/undocumented
     - file: web/YouTube
     - file: web/downloading
-    

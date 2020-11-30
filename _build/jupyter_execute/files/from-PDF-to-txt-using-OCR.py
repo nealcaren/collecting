@@ -1,21 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Install the required packages 
-# 
-# 
+# # Convert PDF to text 
 
 # ```
 # %conda install -c conda-forge pdf2image tesseract poppler
 # %pip install pyocr
 # ```
 # 
-
-# In[5]:
-
-
-get_ipython().run_line_magic('conda', 'install poppler')
-
 
 # Details about pdf2image
 # 
@@ -26,61 +18,61 @@ get_ipython().run_line_magic('conda', 'install poppler')
 # 
 # 
 
-# In[6]:
+# In[1]:
 
 
 from pdf2image import convert_from_path
 
 
-# In[7]:
+# In[2]:
 
 
 flyer = convert_from_path('../data/NAWSA.pdf')
 
 
-# In[8]:
+# In[3]:
 
 
 flyer[0]
 
 
-# In[9]:
+# In[4]:
 
 
 from pyocr.tesseract import image_to_string
 
 
-# In[10]:
+# In[5]:
 
 
 text = image_to_string(flyer[0])
 
 
-# In[11]:
+# In[6]:
 
 
 print(text)
 
 
-# In[12]:
+# In[7]:
 
 
 journal_pages = convert_from_path('../data/Progressive_Woman_Vol-4_Iss-42.pdf') 
 
 
-# In[13]:
+# In[8]:
 
 
 len(journal_pages)
 
 
-# In[14]:
+# In[9]:
 
 
 journal_pages[1]
 
 
-# In[15]:
+# In[10]:
 
 
 print(image_to_string(journal_pages[1]))
@@ -88,7 +80,7 @@ print(image_to_string(journal_pages[1]))
 
 # ![](../images/rough_graph.png)
 
-# In[17]:
+# In[11]:
 
 
 file_name = '../data/Progressive_Woman_Vol-4_Iss-42.pdf'
@@ -107,68 +99,68 @@ for n, page in enumerate(pages):
     contents.append(meta)
 
 
-# In[18]:
+# In[12]:
 
 
 import pandas as pd
 df = pd.DataFrame(contents)
 
 
-# In[19]:
+# In[13]:
 
 
 df.head()
 
 
-# In[20]:
+# In[14]:
 
 
 df['image'][2]
 
 
-# In[23]:
+# In[15]:
 
 
 df.to_json('pw.json')
 
 
-# In[33]:
+# In[16]:
 
 
 df2 = pd.read_json('pw.json')
 
 
-# In[34]:
+# In[17]:
 
 
 df2
 
 
-# In[35]:
+# In[18]:
 
 
 df.to_pickle('pw.pickle')
 
 
-# In[29]:
+# In[19]:
 
 
 df2 = pd.read_pickle('pw.pickle')
 
 
-# In[30]:
+# In[20]:
 
 
 df2.head()
 
 
-# In[31]:
+# In[21]:
 
 
 df2['image'][2]
 
 
-# In[39]:
+# In[22]:
 
 
 from pdf2image import convert_from_path
@@ -196,25 +188,25 @@ def pdf_ocr_df(file_name):
     return pd.DataFrame(contents)
 
 
-# In[ ]:
+# In[23]:
 
 
 df = pdf_ocr_df('../data/Mother-Earth_Vol-6_Iss-2.pdf')
 
 
-# In[ ]:
+# In[24]:
 
 
 df.head()
 
 
-# In[ ]:
+# In[25]:
 
 
 df['image'][6]
 
 
-# In[ ]:
+# In[26]:
 
 
 print(df['text'][6])
